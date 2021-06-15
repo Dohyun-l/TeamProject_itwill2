@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-안녕하세요
-안녕하세요 커밋 푸시 한 번 해보고 갈게요 
-
+<h1> 민정</h1>
 </body>
 </html>
