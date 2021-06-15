@@ -78,4 +78,29 @@ public class userDAO {
 	}
 	//getUserNickNameByNum
 
+	//getAdminByNum
+	public int getAdminByNum(int userNum){
+		
+		//0 -> 일반  |  1 -> 관리자  | -1 -> 에러
+		int flag = -1;
+
+		try {
+			conn = getConnection();
+			sql = "select admin_auth from user where user_num=?";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userNum);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				flag = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
+	//getAdminByNum
+	
 }
