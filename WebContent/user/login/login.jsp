@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-브런치 경태꺼입니다.
+시헌행님이 작성하실 곳. (파일명 맘대로 하셔도 되용)
 </body>
 </html>
