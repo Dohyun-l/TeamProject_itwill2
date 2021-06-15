@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body> 
 <%
 	String[] tagList = {
 	"AI/머신러닝", "AMstack", "Angluar","Array method", "Assembly Script", "Bootstrap5", "C++", "CMS", "Context API", 
