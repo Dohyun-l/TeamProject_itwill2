@@ -10,6 +10,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class userDAO {
 	
 	private Connection conn = null;
@@ -103,11 +105,17 @@ public class userDAO {
 	}
 	//getAdminByNum
 	
+	//HashPW
+	private String HashPW(String pw){
+		return BCrypt.hashpw(pw, BCrypt.gensalt(5));
+	}
+	//HashPW
+	
 	//setJoinPreState
 	private void setJoinPreState(userDTO uDTO) throws SQLException{
 		pstmt.setInt(1, uDTO.getUser_num());
 		pstmt.setString(2, uDTO.getEmail());
-		pstmt.setString(3, uDTO.getPw());
+		pstmt.setString(3, HashPW(uDTO.getPw()));
 		pstmt.setString(4, uDTO.getName());
 		pstmt.setString(5, uDTO.getNickname());
 		pstmt.setString(6, uDTO.getAddr());
