@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.util.Date;
 

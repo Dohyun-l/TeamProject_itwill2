@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

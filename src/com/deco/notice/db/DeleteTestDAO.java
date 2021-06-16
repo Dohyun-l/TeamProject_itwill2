@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -103,7 +103,7 @@ public class DeleteTestDAO {
 				ndto.setIdx(rs.getInt("idx"));
 				ndto.setTitle(rs.getString("title"));
 				ndto.setUser_num(rs.getInt("user_num"));
-				ndto.setcreate_at(rs.getDate("create_at"));
+				ndto.setCreate_at(rs.getDate("create_at"));
 				ndto.setCount(rs.getInt("count"));
 			
 				// 리스트 한 칸에 목록 하나 저장

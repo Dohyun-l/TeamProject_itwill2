@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.action;
 
 import java.io.IOException;
 

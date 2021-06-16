@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
