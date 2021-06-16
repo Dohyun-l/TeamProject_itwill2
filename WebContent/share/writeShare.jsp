@@ -61,60 +61,60 @@ function recaptcha(token) {
 		<input type="text" name="title" placeholder="제목을 입력해주세요"><br>
 		<input type="text" value="5개 이하로 체크해주세요" readonly><br>
 		<!-- 최대 5개까지 체크가능 -->
-		<input type="checkbox" name="tag" value="tag">AI/머신러닝
-		<input type="checkbox" name="tag" value="tag">AMstack
-    	<input type="checkbox" name="tag" value="tag">Angluar
-    	<input type="checkbox" name="tag" value="tag">Array method
-    	<input type="checkbox" name="tag" value="tag">Assembly Script
-    	<input type="checkbox" name="tag" value="tag">Bootstrap5
-    	<input type="checkbox" name="tag" value="tag">C++
-    	<input type="checkbox" name="tag" value="tag">CMS<br>
-    	<input type="checkbox" name="tag" value="tag">Context API
-    	<input type="checkbox" name="tag" value="tag">CSS
-    	<input type="checkbox" name="tag" value="tag">CSS Framwork
-    	<input type="checkbox" name="tag" value="tag">DOM
-    	<input type="checkbox" name="tag" value="tag">Electron
-    	<input type="checkbox" name="tag" value="tag">Fetch API
-    	<input type="checkbox" name="tag" value="tag">Flex box
-    	<input type="checkbox" name="tag" value="tag">Flutter
-    	<input type="checkbox" name="tag" value="tag">Git<br>
-    	<input type="checkbox" name="tag" value="tag">Grid
-    	<input type="checkbox" name="tag" value="tag">HTML
-    	<input type="checkbox" name="tag" value="tag">HTTP
-    	<input type="checkbox" name="tag" value="tag">HTTPS
-    	<input type="checkbox" name="tag" value="tag">Ionic
-    	<input type="checkbox" name="tag" value="tag">JAVA
-    	<input type="checkbox" name="tag" value="tag">Javascript
-    	<input type="checkbox" name="tag" value="tag">JSON
-    	<input type="checkbox" name="tag" value="tag">Kotilin
-    	<input type="checkbox" name="tag" value="tag">Materialize<br>
-    	<input type="checkbox" name="tag" value="tag">Media query
-    	<input type="checkbox" name="tag" value="tag">Native
-    	<input type="checkbox" name="tag" value="tag">NgRx
-    	<input type="checkbox" name="tag" value="tag">NW
-    	<input type="checkbox" name="tag" value="tag">Objective-C
-    	<input type="checkbox" name="tag" value="tag">OS
-    	<input type="checkbox" name="tag" value="tag">PWA
-    	<input type="checkbox" name="tag" value="tag">Python
-    	<input type="checkbox" name="tag" value="tag">React
-    	<input type="checkbox" name="tag" value="tag">React Native<br>
-    	<input type="checkbox" name="tag" value="tag">Redux
-    	<input type="checkbox" name="tag" value="tag">Rust complie
-    	<input type="checkbox" name="tag" value="tag">SASS
-    	<input type="checkbox" name="tag" value="tag">Service Workers
-    	<input type="checkbox" name="tag" value="tag">Shared Service
-    	<input type="checkbox" name="tag" value="tag">SSG(site generator)
-    	<input type="checkbox" name="tag" value="tag">Svelte<br>
-    	<input type="checkbox" name="tag" value="tag">Switft
-    	<input type="checkbox" name="tag" value="tag">Tailwind
-    	<input type="checkbox" name="tag" value="tag">Tkinter
-    	<input type="checkbox" name="tag" value="tag">Vue
-    	<input type="checkbox" name="tag" value="tag">Vuex
-    	<input type="checkbox" name="tag" value="tag">Web Assembly
-    	<input type="checkbox" name="tag" value="tag">Xamarin
-    	<input type="checkbox" name="tag" value="tag">디자인 패턴
-    	<input type="checkbox" name="tag" value="tag">알고리즘
-    	<input type="checkbox" name="tag" value="tag">음성인식  		
+		<input type="checkbox" name="tag" value="AI/머신러닝">AI/머신러닝
+		<input type="checkbox" name="tag" value="AMstack">AMstack
+    	<input type="checkbox" name="tag" value="Angluar">Angluar
+    	<input type="checkbox" name="tag" value="Array method">Array method
+    	<input type="checkbox" name="tag" value="Assembly Script">Assembly Script
+    	<input type="checkbox" name="tag" value="Bootstrap5">Bootstrap5
+    	<input type="checkbox" name="tag" value="C++">C++
+    	<input type="checkbox" name="tag" value="CMS">CMS<br>
+    	<input type="checkbox" name="tag" value="Context API">Context API
+    	<input type="checkbox" name="tag" value="CSS">CSS
+    	<input type="checkbox" name="tag" value="CSS Framwork">CSS Framwork
+    	<input type="checkbox" name="tag" value="DOM">DOM
+    	<input type="checkbox" name="tag" value="Electron">Electron
+    	<input type="checkbox" name="tag" value="Fetch API">Fetch API
+    	<input type="checkbox" name="tag" value="Flex box">Flex box
+    	<input type="checkbox" name="tag" value="Flutter">Flutter
+    	<input type="checkbox" name="tag" value="Git">Git<br>
+    	<input type="checkbox" name="tag" value="Grid">Grid
+    	<input type="checkbox" name="tag" value="HTML">HTML
+    	<input type="checkbox" name="tag" value="HTTP">HTTP
+    	<input type="checkbox" name="tag" value="HTTPS">HTTPS
+    	<input type="checkbox" name="tag" value="Ionic">Ionic
+    	<input type="checkbox" name="tag" value="JAVA">JAVA
+    	<input type="checkbox" name="tag" value="Javascript">Javascript
+    	<input type="checkbox" name="tag" value="JSON">JSON
+    	<input type="checkbox" name="tag" value="Kotilin">Kotilin
+    	<input type="checkbox" name="tag" value="Materialize">Materialize<br>
+    	<input type="checkbox" name="tag" value="Media query">Media query
+    	<input type="checkbox" name="tag" value="Native">Native
+    	<input type="checkbox" name="tag" value="NgRx">NgRx
+    	<input type="checkbox" name="tag" value="NW">NW
+    	<input type="checkbox" name="tag" value="Objective-C">Objective-C
+    	<input type="checkbox" name="tag" value="OS">OS
+    	<input type="checkbox" name="tag" value="PWA">PWA
+    	<input type="checkbox" name="tag" value="Python">Python
+    	<input type="checkbox" name="tag" value="React">React
+    	<input type="checkbox" name="tag" value="React Native">React Native<br>
+    	<input type="checkbox" name="tag" value="Redux">Redux
+    	<input type="checkbox" name="tag" value="Rust complie">Rust complie
+    	<input type="checkbox" name="tag" value="SASS">SASS
+    	<input type="checkbox" name="tag" value="Service Workers">Service Workers
+    	<input type="checkbox" name="tag" value="Shared Service">Shared Service
+    	<input type="checkbox" name="tag" value="SSG(site generator)">SSG(site generator)
+    	<input type="checkbox" name="tag" value="Svelte">Svelte<br>
+    	<input type="checkbox" name="tag" value="Switft">Switft
+    	<input type="checkbox" name="tag" value="Tailwind">Tailwind
+    	<input type="checkbox" name="tag" value="Tkinter">Tkinter
+    	<input type="checkbox" name="tag" value="Vue">Vue
+    	<input type="checkbox" name="tag" value="Vuex">Vuex
+    	<input type="checkbox" name="tag" value="Web Assembly">Web Assembly
+    	<input type="checkbox" name="tag" value="Xamarin">Xamarin
+    	<input type="checkbox" name="tag" value="디자인 패턴">디자인 패턴
+    	<input type="checkbox" name="tag" value="알고리즘">알고리즘
+    	<input type="checkbox" name="tag" value="음성인식 ">음성인식  		
 		
 		<!-- 네이버 에디터.. -->
 		<!-- SE2 Markup Start -->	
