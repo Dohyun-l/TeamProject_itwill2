@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-response.sendRedirect(request.getContextPath()+"/users/join");%>
+<h1>메일 발송하였음.</h1>
 </body>
 </html>
