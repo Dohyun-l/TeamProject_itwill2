@@ -1,7 +1,7 @@
 package com.deco.user.join;
 
-import com.deco.user.Action;
-import com.deco.user.ActionForward;
+import com.deco.Action;
+import com.deco.ActionForward;
 
 public class joinAction implements Action{
 

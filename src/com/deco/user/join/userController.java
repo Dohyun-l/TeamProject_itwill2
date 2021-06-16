@@ -5,11 +5,10 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.deco.user.Controller;
+import com.deco.Controller;
 
 @WebServlet("/users/*")
 public class userController extends Controller{
@@ -19,17 +18,12 @@ public class userController extends Controller{
 		setInit(req, res);
 		keyword = getKeyword(req,6);
 		
-		System.out.println(keyword);
-		
 		if(keyword.equals("/join")){
 			System.out.println("/join에 들어옴");
 			
 			action = new joinAction();
 			forward = action.execute();
 		}
-		
-		System.out.println(action);
-		System.out.println(forward);
 		
 		if(forward != null){
 			if(forward.isRedirect()){
