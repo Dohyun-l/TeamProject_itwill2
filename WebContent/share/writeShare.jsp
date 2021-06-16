@@ -914,8 +914,10 @@ if(window.frameElement){
 }
 </script>
 <!--Example End-->
+	<!-- 파일첨부 -->
+	<input type="file" name="filename">
 <!-- 네이버 에디터  -->
-		<br>
+		<br><br>
 		<!-- 로봇이 아닙니다 체크하기 -->
 		<div class="g-recaptcha" id="g-recaptcha" data-sitekey="6LdQ1zEbAAAAAOzJAHtwDc8LTdr2vNQffqV-K15l" 	
 		data-callback="recaptcha"></div>
