@@ -1,4 +1,4 @@
-package com.deco.user.join;
+package com.deco.user;
 
 public class ActionForward {
 	
