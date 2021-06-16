@@ -13,7 +13,7 @@ public class joinPostAction implements Action{
 		
 		
 		
-		ActionForward forward = new ActionForward("", true);
+		ActionForward forward = new ActionForward("../", true);
 		return forward;
 	}
 	

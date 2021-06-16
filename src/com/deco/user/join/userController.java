@@ -27,21 +27,7 @@ public class userController extends Controller{
 			forward = action.execute(req,res);
 		}
 		
-		String hash = BCrypt.hashpw("1234", BCrypt.gensalt(5));
-		System.out.println(hash);
-		
-		if(forward != null){
-			if(forward.isRedirect()){
-				res.sendRedirect(forward.getURL());
-				System.out.println("C : sendRedirect() 방식, " + forward.getURL() + "페이지 이동");
-			}else{ //false
-				System.out.println(forward.getURL());
-				RequestDispatcher dis = req.getRequestDispatcher(forward.getURL());
-				
-				dis.forward(req, res);
-				System.out.println("C : forward() 방식, " + forward.getURL());
-			}
-		}
+		render(forward,req,res);
 	}
 
 	@Override
@@ -55,6 +41,8 @@ public class userController extends Controller{
 			action = new joinPostAction();
 			forward = action.execute(req,res);
 		}
+		
+		render(forward,req,res);
 	}
 	
 }
