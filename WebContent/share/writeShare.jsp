@@ -9,9 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>정보 공유 - 글쓰기</title>
-
-
-
+<script type="text/javascript">
+function readContent(){
+	
+}
+</script>
 </head>
 <body>
 	<h1>WebContent/share/writeShare.jsp</h1>
@@ -25,17 +27,22 @@
 		userDAO udao = new userDAO();
 		String nickname = udao.getUserNickNameByNum(userNum); */
 		String nickname = "admin";
+		
+		// enctype="multipart/form-data"
 	%>
 	
 	
 	<fieldset>
-		<form action="./shareWriteAction" method="post" enctype="multipart/form-data">
+		<form action="./shareWriteAction" method="post" onsubmit="readContent()" name="fr">
 		<input type="text" id="nickname" name="nickname" value="<%=nickname%>"readonly><br>
 		 <br>
 				  
 		<input type="text" name="title" placeholder="제목을 입력해주세요"><br>
 		<!-- 네이버 에디터.. -->
-		<jsp:include page="shareEditor.html"></jsp:include>
+		<jsp:include page="shareEditor.html"/>
+		
+		
+		
 		<hr>
 		<br>
 		<!-- 로봇이 아닙니다 체크하기 -->

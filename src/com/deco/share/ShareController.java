@@ -23,9 +23,13 @@ public class ShareController extends Controller{
 		
 		
 		
-		if (keyword.equals("/writeShare")){
-			System.out.println("C : /writeShare 호출");
+		if (keyword.equals("/shareWrite")){
+			System.out.println("C : /shareWrite 호출");
 			forward = new ActionForward("../share/writeShare.jsp", false);
+		} else if(keyword.equals("/shareWriteAction")){
+			System.out.println("C : /shareWriteAction 호출");
+			action = new shareWriteAction();
+			forward = action.execute(req, res);
 		}
 		
 		
@@ -45,7 +49,32 @@ public class ShareController extends Controller{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	
+		setInit(req, res);
+		keyword = getKeyword(req,10);
+		
+		
+		
+		if(keyword.equals("/shareWriteAction")){
+			System.out.println("C : /shareWriteAction 호출");
+			action = new shareWriteAction();
+			forward = action.execute(req, res);
+		}
+		
+		
+		if(forward != null){
+			if(forward.isRedirect()){
+				res.sendRedirect(forward.getURL());
+				System.out.println("C : sendRedirect() 방식, " + forward.getURL() + "페이지 이동");
+			}else{ //false
+				System.out.println(forward.getURL());
+				RequestDispatcher dis = req.getRequestDispatcher(forward.getURL());
+				
+				dis.forward(req, res);
+				System.out.println("C : forward() 방식, " + forward.getURL());
+			}
+		}
+		
+		
 	}
 	
 }
