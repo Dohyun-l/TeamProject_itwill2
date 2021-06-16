@@ -64,6 +64,8 @@ public class noticeDAO {
 	*/
 	
 	
+	public 
+	
 	
 	
 }
