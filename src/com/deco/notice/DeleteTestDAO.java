@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class noticeDAO {
+public class DeleteTestDAO {
 
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
@@ -59,10 +59,30 @@ public class noticeDAO {
 	인서트
 	딜리트
 
-	업데이트	
-	리스트	
+	업데이트
+	
+	리스트
+	
 	*/
 	
+	//글 숫자 기준
+	public void deleteNotice(noticeDTO nDTO){
+		int idx = 0;
+		
+		try {
+			conn = getConnection();
+			sql = "delete from itwill_goods where num=?";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+		
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 	
 	
