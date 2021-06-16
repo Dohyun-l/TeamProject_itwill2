@@ -22,7 +22,7 @@ public class userController extends Controller{
 			System.out.println("/join에 들어옴");
 			
 			action = new joinAction();
-			forward = action.execute();
+			forward = action.execute(req, res);
 		}
 		
 		if(forward != null){
