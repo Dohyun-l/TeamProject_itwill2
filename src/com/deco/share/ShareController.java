@@ -29,7 +29,11 @@ public class ShareController extends Controller{
 		} else if(keyword.equals("/shareWriteAction")){
 			System.out.println("C : /shareWriteAction 호출");
 			action = new shareWriteAction();
-			forward = action.execute(req, res);
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
@@ -53,11 +57,14 @@ public class ShareController extends Controller{
 		keyword = getKeyword(req,10);
 		
 		
-		
 		if(keyword.equals("/shareWriteAction")){
 			System.out.println("C : /shareWriteAction 호출");
 			action = new shareWriteAction();
-			forward = action.execute(req, res);
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
