@@ -13,7 +13,7 @@ import com.deco.Controller;
 
 // http://localhost:8088/TeamProject_itwill2/shareInfo/
 @WebServlet("/shareInfo/*")
-public class ShareController extends Controller{
+public class shareController extends Controller{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
