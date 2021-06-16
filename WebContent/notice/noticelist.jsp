@@ -7,14 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="">
-제목: <input type="text" name="title">
-<jsp:include page="./index.jsp"></jsp:include>
-<input type="submit" value="글 쓰기">
-</form>
-
-
-
 
 </body>
 </html>

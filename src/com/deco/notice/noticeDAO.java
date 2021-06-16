@@ -57,14 +57,17 @@ public class noticeDAO {
 	}
 /*	
 	인서트
-	업데이트
 	딜리트
+
+	업데이트
+	
 	리스트
 	
 	*/
 	
 	
 	public 
+
 	
 	
 	
