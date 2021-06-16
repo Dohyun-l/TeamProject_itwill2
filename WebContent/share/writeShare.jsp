@@ -1,14 +1,50 @@
+<%@page import="com.deco.user.userDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>정보 공유 - 글쓰기</title>
+
+
+
 </head>
 <body>
 	<h1>WebContent/share/writeShare.jsp</h1>
 	
+	
+	
+	
+	<%
+		/* int userNum = Integer.parseInt((String)session.getAttribute("user_num"));
+	
+		userDAO udao = new userDAO();
+		String nickname = udao.getUserNickNameByNum(userNum); */
+		String nickname = "admin";
+	%>
+	
+	
+	<fieldset>
+		<form action="./shareWriteAction" method="post" enctype="multipart/form-data">
+		<input type="text" id="nickname" name="nickname" value="<%=nickname%>"readonly><br>
+		 <br>
+				  
+		<input type="text" name="title" placeholder="제목을 입력해주세요"><br>
+		<!-- 네이버 에디터.. -->
+		<jsp:include page="shareEditor.html"></jsp:include>
+		<hr>
+		<br>
+		<!-- 로봇이 아닙니다 체크하기 -->
+		<div class="g-recaptcha" data-sitekey="6LdQ1zEbAAAAAOzJAHtwDc8LTdr2vNQffqV-K15l">
+
+		<input type="submit" value="등록">
+		<input type="reset" value="취소">     
+		</form>
+	</fieldset>
 
 </body>
 </html>

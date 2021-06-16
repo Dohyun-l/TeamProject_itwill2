@@ -26,7 +26,6 @@ public class ShareController extends Controller{
 		if (keyword.equals("/writeShare")){
 			System.out.println("C : /writeShare 호출");
 			forward = new ActionForward("../share/writeShare.jsp", false);
-			
 		}
 		
 		
