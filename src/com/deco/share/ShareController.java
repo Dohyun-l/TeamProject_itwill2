@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.deco.ActionForward;
 import com.deco.Controller;
 
+// http://localhost:8088/TeamProject_itwill2/shareInfo/
 @WebServlet("/shareInfo/*")
 public class ShareController extends Controller{
 
