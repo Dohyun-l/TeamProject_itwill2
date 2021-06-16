@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.deco.Controller;
 
 @WebServlet("/users/*")
@@ -21,27 +23,31 @@ public class userController extends Controller{
 		if(keyword.equals("/join")){
 			System.out.println("/join에 들어옴");
 			
+<<<<<<< HEAD
 			action = new joinAction();
 			forward = action.execute(req, res);
+=======
+			action = new joinGetAction();
+			forward = action.execute(req,res);
+>>>>>>> branch 'master' of https://github.com/Dohyun-l/TeamProject_itwill2.git
 		}
 		
-		if(forward != null){
-			if(forward.isRedirect()){
-				res.sendRedirect(forward.getURL());
-				System.out.println("C : sendRedirect() 방식, " + forward.getURL() + "페이지 이동");
-			}else{ //false
-				System.out.println(forward.getURL());
-				RequestDispatcher dis = req.getRequestDispatcher(forward.getURL());
-				
-				dis.forward(req, res);
-				System.out.println("C : forward() 방식, " + forward.getURL());
-			}
-		}
+		render(forward,req,res);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	
+		setInit(req, res);
+		keyword = getKeyword(req,6);
+		
+		if(keyword.equals("/join")){
+			System.out.println("/join  ====> post 에 들어옴");
+			
+			action = new joinPostAction();
+			forward = action.execute(req,res);
+		}
+		
+		render(forward,req,res);
 	}
 	
 }

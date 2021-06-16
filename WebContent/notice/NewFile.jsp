@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-response.sendRedirect(request.getContextPath()+"/users/join");%>
+ 올리는 용
 </body>
 </html>

@@ -7,7 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-response.sendRedirect(request.getContextPath()+"/users/join");%>
+
+<form action="">
+	<input type="text">
+
+</form>
+
+
+
 </body>
 </html>

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: deco
 -- ------------------------------------------------------
--- Server version	5.7.34-log
+-- Server version	5.7.33-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `idx` int(11) NOT NULL,
   `user_num` int(11) NOT NULL,
-  `tite` varchar(45) NOT NULL,
+  `title` varchar(45) NOT NULL,
   `content` varchar(2000) NOT NULL,
   `file` varchar(500) DEFAULT NULL,
-  `write_date` date NOT NULL,
+  `create_at` date NOT NULL,
   `count` int(11) DEFAULT NULL,
   PRIMARY KEY (`idx`),
   KEY `usernum_fk_idx` (`user_num`),
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-15 22:54:58
+-- Dump completed on 2021-06-16 17:05:32
