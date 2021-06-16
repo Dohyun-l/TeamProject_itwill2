@@ -21,10 +21,14 @@ public class userController extends Controller{
 		keyword = getKeyword(req,6);
 		
 		if(keyword.equals("/join")){
-			System.out.println("/join에 들어옴");
+			System.out.println("join에 들어옴");
 			
 			action = new joinGetAction();
-			forward = action.execute(req,res);
+			try {
+				forward = action.execute(req,res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		render(forward,req,res);
@@ -39,7 +43,11 @@ public class userController extends Controller{
 			System.out.println("/join  ====> post 에 들어옴");
 			
 			action = new joinPostAction();
-			forward = action.execute(req,res);
+			try {
+				forward = action.execute(req,res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		render(forward,req,res);

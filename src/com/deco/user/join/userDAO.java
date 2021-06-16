@@ -103,4 +103,56 @@ public class userDAO {
 	}
 	//getAdminByNum
 	
+	//setJoinPreState
+	private void setJoinPreState(userDTO uDTO) throws SQLException{
+		pstmt.setInt(1, uDTO.getUser_num());
+		pstmt.setString(2, uDTO.getEmail());
+		pstmt.setString(3, uDTO.getPw());
+		pstmt.setString(4, uDTO.getName());
+		pstmt.setString(5, uDTO.getNickname());
+		pstmt.setString(6, uDTO.getAddr());
+		pstmt.setString(7, uDTO.getPhone());
+		pstmt.setString(8, uDTO.getMajor());
+		pstmt.setString(9, uDTO.getInter());
+		
+		//private user는 기본적으로 계정 공개로 0으로 설정(참고: 비공개는 1로 함)
+		pstmt.setInt(10, 0);
+	}
+	//setJoinPreState
+	
+	//insertUser
+	public int insertUser(userDTO uDTO){
+		int flag = -5; 
+		
+		try {
+			conn = getConnection();
+			
+			//user_num 얻기
+			sql = "select max(user_num) from user";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				uDTO.setUser_num(rs.getInt(1) + 1);
+			}
+			
+			//유저 DB에 넣기
+			sql = "insert into user (user_num, email, pw, name, nickname, addr, "
+					+ "phone, major, inter, create_at, last_login, private_user) "
+					+ "values(?,?,?,?,?,?,?,?,?,now(),now(),?)";
+
+			pstmt = conn.prepareStatement(sql);
+			setJoinPreState(uDTO);
+			pstmt.executeUpdate();
+			
+			flag = 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return flag;
+	}
+	//insertUser
 }
