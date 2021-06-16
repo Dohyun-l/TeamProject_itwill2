@@ -13,8 +13,7 @@ public class deleteAction implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) {
 		ActionForward forward = new ActionForward("./notice/list", true);
 		
-		int idx = Integer.parseInt(req.getParameter("idx"));
-		
+		int idx = Integer.parseInt(req.getParameter("idx"));	
 	
 		DeleteTestDAO dtDAO = new DeleteTestDAO();
 		
