@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.admin.goods.db.GoodsDTO;
 
 public class DeleteTestDAO {
 

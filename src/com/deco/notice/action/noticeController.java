@@ -22,7 +22,11 @@ public class noticeController extends Controller{
 			System.out.println("/list");
 			
 			action = new deleteAction();
-			forward = action.execute();
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null){
@@ -41,7 +45,7 @@ public class noticeController extends Controller{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	
+		System.out.println("C : noticeController_doPost() ");
 	}
 	
 }
