@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<form action="./notice/deleteAction" method="post">
+<input type="button" value="삭제">
+</form>
+
 </body>
 </html>
