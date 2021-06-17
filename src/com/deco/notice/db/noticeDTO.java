@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class noticeDTO {
 	private String title;
 	private String content;
 	private String file;
-	private Date write_date;
+	private Date create_at;
 	private int count;
 	
 	public int getIdx() {
@@ -42,11 +42,11 @@ public class noticeDTO {
 	public void setFile(String file) {
 		this.file = file;
 	}
-	public Date getWrite_date() {
-		return write_date;
+	public Date getCreate_at() {
+		return create_at;
 	}
-	public void setWrite_date(Date write_date) {
-		this.write_date = write_date;
+	public void setCreate_at(Date create_at) {
+		this.create_at = create_at;
 	}
 	public int getCount() {
 		return count;
@@ -58,7 +58,7 @@ public class noticeDTO {
 	@Override
 	public String toString() {
 		return "noticeDTO [idx=" + idx + ", user_num=" + user_num + ", title=" + title + ", content=" + content
-				+ ", file=" + file + ", write_date=" + write_date + ", count=" + count + "]";
+				+ ", file=" + file + ", create_at=" + create_at + ", count=" + count + "]";
 	}
 	
 	

@@ -1,14 +1,17 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 
 public class DeleteTestDAO {
 
@@ -55,36 +58,68 @@ public class DeleteTestDAO {
 			e.printStackTrace();
 		}
 	}
-/*	
-	인서트
-	딜리트
+	/*
+	 * 인서트 딜리트
+	 * 
+	 * 업데이트
+	 * 
+	 * 리스트
+	 * 
+	 */
 
-	업데이트
-	
-	리스트
-	
-	*/
-	
-	//글 숫자 기준
-	public void deleteNotice(noticeDTO nDTO){
-		int idx = 0;
-		
+	// delete
+	public void deleteNotice(int idx) {
+
 		try {
 			conn = getConnection();
-			sql = "delete from itwill_goods where num=?";
+			sql = "delete from deco where idx=?";
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-		
-			
+
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+
+			System.out.println("삭제 완료");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			closeDB();
 		}
-		
-		
-	}
 
-	
-	
-	
+	}// delete
+
+	// noticeList()
+	public List noticeList() {
+		List noticeList = new ArrayList();
+		try {
+			conn = getConnection();
+			sql = "select * from deco";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				noticeDTO ndto = new noticeDTO();
+				ndto.setIdx(rs.getInt("idx"));
+				ndto.setTitle(rs.getString("title"));
+				ndto.setUser_num(rs.getInt("user_num"));
+				ndto.setCreate_at(rs.getDate("create_at"));
+				ndto.setCount(rs.getInt("count"));
+			
+				// 리스트 한 칸에 목록 하나 저장
+				noticeList.add(ndto);
+
+			} // while
+
+			System.out.println("DAO : 상품 정보 저장 완료(일반사용자 상품 목록)");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+		return noticeList;
+	}
+	// noticeList()
+
 }
