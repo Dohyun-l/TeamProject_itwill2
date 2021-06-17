@@ -14,6 +14,10 @@ public class shareWriteAction implements Action {
 		
 		req.setCharacterEncoding("utf-8");
 		
+		System.out.println("제목 : " + req.getParameter("title"));
+		System.out.println("작성자 : " + req.getParameter("nickname"));
+		System.out.println("내용 : " + req.getParameter("content"));
+		
 		
 		
 		

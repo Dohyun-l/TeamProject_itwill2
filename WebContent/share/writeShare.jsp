@@ -28,6 +28,11 @@ function readContent(){
 function recaptcha(token) {
     // 로봇아닙니다 token에 대한 유무처리
 }
+
+function readContent() {
+	document.fr.content.value = oEditor.getIR();
+}
+
 </script>
 
 </head>
@@ -886,10 +891,14 @@ function recaptcha(token) {
 <!--Example Start-->
 <div id="se2_sample" style="margin:10px 0;">
 
-<textarea name="content" id="ir1" rows="10" cols="100" style="width:850px; height:400px; display:none;">
+
+
+<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:850px; height:400px; display:none;">
 
 
 </textarea>
+
+<input type="hidden" name="content">
 
 </div>
 
