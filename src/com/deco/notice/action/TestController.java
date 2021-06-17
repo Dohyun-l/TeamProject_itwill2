@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.deco.Controller;
 
 @WebServlet("/notice/*")
-public class noticeController extends Controller{
+public class TestController extends Controller{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -19,33 +21,36 @@ public class noticeController extends Controller{
 		keyword = getKeyword(req,7);
 		
 		if(keyword.equals("/list")){
-			System.out.println("/list");
+			System.out.println("/list에 들어옴");
 			
-			action = new deleteAction();
 			try {
-				forward = action.execute(req, res);
+				forward = action.execute(req,res);
 			} catch (Exception e) {
+
 				e.printStackTrace();
 			}
 		}
 		
-		if(forward != null){
-			if(forward.isRedirect()){
-				res.sendRedirect(forward.getURL());
-				System.out.println("C : sendRedirect() 방식, " + forward.getURL() + "페이지 이동");
-			}else{ //false
-				System.out.println(forward.getURL());
-				RequestDispatcher dis = req.getRequestDispatcher(forward.getURL());
-				
-				dis.forward(req, res);
-				System.out.println("C : forward() 방식, " + forward.getURL());
-			}
-		}
+		render(forward,req,res);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("C : noticeController_doPost() ");
+		setInit(req, res);
+		keyword = getKeyword(req,6);
+		
+		if(keyword.equals("/list")){
+			System.out.println("/list  ====> post 에 들어옴");
+			
+			try {
+				forward = action.execute(req,res);
+			} catch (Exception e) {
+			
+				e.printStackTrace();
+			}
+		}
+		
+		render(forward,req,res);
 	}
 	
 }

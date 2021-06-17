@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,9 +9,18 @@
 </head>
 <body>
 
-<form action="./notice/deleteAction" method="post">
-<input type="button" value="삭제">
+
+
+<form>
+제목: <input type="text" name="title">
+<jsp:include page="./Testindex.jsp"></jsp:include>
+<input type="submit" value="1글 쓰기">
+
+
 </form>
+
+
+
 
 </body>
 </html>
