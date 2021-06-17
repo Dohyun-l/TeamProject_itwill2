@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/notice/noticeform.jsp</h1>
 
 <form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
 	제목 <input type="text" name="title"> <br>
@@ -21,8 +20,6 @@
 	<input type="submit" value="등록">
 	<input type="reset" value="취소">
 </form>
-
-
 
 
 </body>

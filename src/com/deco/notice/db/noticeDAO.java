@@ -76,13 +76,14 @@ public class noticeDAO {
 			System.out.println("DAO : 상품번호 - " + num);
 			
 			// 2. 글 등록
-			sql = "insert into notice (idx, user_num, title, content, create_at, count) "
-					   + "values(?,1,?,?,now(),0)";
+			sql = "insert into notice (idx, user_num, title, content, file, create_at, count) "
+					   + "values(?,1,?,?,?,now(),0)";
 			   pstmt = conn.prepareStatement(sql);
 			   // ?
 			   pstmt.setInt(1, num);
 			   pstmt.setString(2, nDTO.getTitle());
 			   pstmt.setString(3, nDTO.getContent());
+			   pstmt.setString(4, nDTO.getFile());
 			   
 			   // 4 sql 실행
 			   pstmt.executeUpdate();
@@ -95,26 +96,6 @@ public class noticeDAO {
 	}
 	//insertNotice(nDTO)
 	
-	//deleteNotice(int idx)
-	public void deleteNotice(int idx) {
-
-		try {
-			conn = getConnection();
-			sql = "delete from notice where idx=?";
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setInt(1, idx);
-			pstmt.executeUpdate();
-
-			System.out.println("삭제 완료");
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			closeDB();
-		}
-
-	}//deleteNotice(int idx)
 
 	// updateReadcount(num)
 	public void updateReadcount(int idx){
@@ -261,6 +242,7 @@ public class noticeDAO {
 				nDTO.setUser_num(rs.getInt("user_num"));
 				nDTO.setTitle(rs.getString("title"));
 				nDTO.setContent(rs.getString("content"));
+				nDTO.setFile(rs.getString("file"));
 				nDTO.setCreate_at(rs.getDate("create_at"));
 				nDTO.setCount(rs.getInt("count"));
 				
@@ -276,11 +258,27 @@ public class noticeDAO {
 	// getBoard(num)
 	
 	
-	
-	
-	
-	
-	
+	//deleteNotice(int idx)
+	public void deleteNotice(int idx) {
+
+		try {
+			conn = getConnection();
+			sql = "delete from notice where idx=?";
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+
+			System.out.println("삭제 완료");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}
+	//deleteNotice(int idx)
 	
 	
 	
