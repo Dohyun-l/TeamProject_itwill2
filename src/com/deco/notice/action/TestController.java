@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.deco.Controller;
-
+/*
 @WebServlet("/notice/*")
 public class TestController extends Controller{
 
@@ -54,3 +54,4 @@ public class TestController extends Controller{
 	}
 	
 }
+*/
