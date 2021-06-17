@@ -1,16 +1,9 @@
 package com.deco.notice.action;
 
-import java.sql.Timestamp;
-
-import javax.servlet.ServletContext;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.deco.notice.db.noticeDAO;
-import com.deco.notice.db.noticeDTO;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class NoticeDeleteAction implements Action {
 

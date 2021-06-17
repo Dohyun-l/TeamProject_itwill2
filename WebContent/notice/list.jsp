@@ -16,7 +16,6 @@
 		
 		// BoardDAO 객체 생성
 		noticeDAO nDAO = new noticeDAO();
-		
 		// 디비에 글의 수를 계산하는 메서드 생성 -> 호출
 		// getBoardCount();
 		int cnt = nDAO.getBoardCount();
@@ -50,18 +49,13 @@
 		// 디비에 저장된 모든 글 중에서 원하는만큼만 가져오기(페이지 사이즈)
 		ArrayList boardList = nDAO.getBoardList(startRow, pageSize);
 		
-		for(int i=0; i<boardList.size(); i++){
-				noticeDTO nDTO = (noticeDTO)boardList.get(i);	
-		%>
+	%>
+	
 	<h2> ITWILL 게시판 글목록 [총 : <%= cnt %>개] </h2>
 	
 		<h3><a href="./noticeform.nt">공지글쓰기</a></h3>
-		<h3><a href="./NoticeDeleteAction.nt?num=<%=nDTO.getIdx()%>">삭제</a></h3>
 	
 	<table border="1">
-			
-
-	<tr></tr>
 		<tr>
 			<td>글번호</td>
 			<td>작성자</td>
@@ -70,11 +64,16 @@
 			<td>작성일</td>
 			<td>조회수</td>
 		</tr>
-		
+		<% 
+		for(int i=0; i<boardList.size(); i++){
+				noticeDTO nDTO = (noticeDTO)boardList.get(i);	
+		%>
 		<tr>
 			<td><%=nDTO.getIdx() %></td>
 			<td><%=nDTO.getUser_num() %></td>
-			<td><%=nDTO.getTitle() %></td>
+			<td>
+			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>"><%=nDTO.getTitle()%></a>
+			</td>
 			<td><%=nDTO.getContent() %></td>
 			<td><%=nDTO.getCreate_at() %></td>
 			<td><%=nDTO.getCount() %></td>
@@ -82,7 +81,6 @@
 		<% 
 		}
 		%>
-		
 	</table>
 	
 	<hr>

@@ -24,8 +24,9 @@
 		
 		// DB에서 글번호(num)에 해당하는 글정보를 모두 가져와서 출력
 		noticeDTO nDTO = nDAO.getBoard(idx);
+		
 	%>
-	
+	     <a href="./NoticeDeleteAction.nt?num=<%=nDTO.getIdx()%>">삭제</a>
 	<table border="1">
 		<tr>
 			<td>글번호</td>
@@ -38,7 +39,6 @@
 			<td><%=nDTO.getCreate_at()%></td>
 			<td>조회수</td>
 			<td><%=nDTO.getCount()%></td>
-			</td>
 		</tr>
 		<tr>
 			<td>제목</td>
@@ -47,13 +47,13 @@
 		<tr>
 			<td colspan="4"><%=nDTO.getContent()%></td>
 		</tr>
-<%-- 		<tr>
+ 		<tr>
 			<td colspan="4">
 			<input type="button" value="수정하기" 
-				onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
+				onclick="location.href='updateForm.jsp?num=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
 			<input type="button" value="삭제하기" 
-				onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
-			<input type="button" value="답글쓰기"
+				onclick="location.href='./NoticeDeleteAction.nt?num=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
+<%--			<input type="button" value="답글쓰기"
 				onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum()%>&re_ref=<%=bb.getRe_ref()%>&re_lev=<%=bb.getRe_lev()%>&re_seq=<%=bb.getRe_seq()%>';">
 			<input type="button" value="목록으로" onclick="location.href='list.jsp?pageNum=<%=pageNum%>';">
 			</td>
