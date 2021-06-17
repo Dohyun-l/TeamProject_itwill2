@@ -7,11 +7,12 @@ public class ActionForward {
 	private String path;
 	// 이동하는 방식
 	private boolean isRedirect;
-	//  true - sendRedirect방식 이동
-	//  false - forward방식 이동
+	// true - sendRedirect방식 이동
+	// false - forward방식 이동
 	
 	
-	// set/get메서드    alt shift s + r
+	
+	// set/get메서드	alt+shift+s -> r
 	public String getPath() {
 		return path;
 	}
@@ -25,5 +26,7 @@ public class ActionForward {
 		this.isRedirect = isRedirect;
 	}
 	
-
+	
+	
+	
 }

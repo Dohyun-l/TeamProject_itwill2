@@ -8,8 +8,15 @@
 </head>
 <body>
 
-안녕하세요
-안녕하세요 커밋 푸시 한 번 해보고 갈게요 
+	<!-- model2 실행페이지 -->
+	<%
+
+		
+		response.sendRedirect("./Main.nt");
+
+	
+	
+	%>
 
 </body>
 </html>
