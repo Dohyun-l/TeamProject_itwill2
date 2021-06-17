@@ -16,18 +16,27 @@ const getPostRequest = (reqData) => {
     return fetchData;
 }
 
+const SearchData = async(event,url) => {
+    const $target = event.target;
+    const $term = $target.value;
+    const URL = url;
+    const state = await (await fetch(URL,getPostRequest($term))).json();
+    
+    if(state.exists){
+        $target.style.borderColor = 'red';
+    } else {
+        $target.style.borderColor = 'green';
+    }
+}
+
 const emailSearchHandler = async(event) => {
-    const term = event.target.value;
     const URL = './SearchUserEmail.json';
-    const state = await (await fetch(URL,getPostRequest(term))).json();
-    console.log(state);
+    await SearchData(event, URL);
 }
 
 const nicknameSearchHandler = async(event) => {
-    const term = event.target.value;
     const URL = './SearchUserNickname.json';
-    const state = await (await fetch(URL,getPostRequest(term))).json();
-    console.log(state);
+    await SearchData(event, URL);
 }
 
 emailInput.addEventListener("keyup",emailSearchHandler);
