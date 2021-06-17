@@ -195,4 +195,30 @@ public class userDAO {
 		return flag;
 	}
 	//serachUserEmail
+	
+	//searchUserNickname
+	public boolean searchUserNickname(String nowNickname){
+		boolean flag = false;
+		
+		try {
+			conn = getConnection();
+			sql = "select user_num from user where nickname=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, nowNickname);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				flag = true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		
+		return flag;
+	}
+	//searchUserNickname
 }

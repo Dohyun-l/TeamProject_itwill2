@@ -12,30 +12,38 @@ import com.deco.Controller;
 
 @WebServlet("*.json")
 public class dataController extends Controller{
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		setInit(req, res);
 		System.out.println(command);
 		
 		if(command.equals("/SearchUserEmail.json")){
 			action = new searchUserEmailAction();
-			
-			try {
-				forward = action.execute(req, res);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			forward = action.execute(req, res);
+		
 		}else if(command.equals("/SearchUserNickname.json")){
-			
+			action = new searchUserNicknameAction();
+			forward = action.execute(req, res);
 		}
 		
 		render(forward, req, res);
 	}
-	
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		try {
+			doProcess(req, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		try {
+			doProcess(req, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

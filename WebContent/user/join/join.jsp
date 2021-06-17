@@ -10,7 +10,7 @@
 <body>
 
 <main>
-	<form method="post">
+	<form action="joinAction.us" method="post">
 		<h2>회원가입</h2>
 		<input type="text" name="email" id="email" placeholder="이메일">
 		<input type="password" name="pw" id="pw" placeholder="비밀번호">
