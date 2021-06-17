@@ -20,11 +20,11 @@ public class dataController extends Controller{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		setInit(req, res);
-		System.out.println(keyword);
+		System.out.println(command);
 		
-		if(keyword.equals("/SearchUserEmail.json")){
+		if(command.equals("/SearchUserEmail.json")){
 			action = new 
-		}else if(keyword.equals("/SearchUserNickname.json")){
+		}else if(command.equals("/SearchUserNickname.json")){
 			
 		}
 	}
