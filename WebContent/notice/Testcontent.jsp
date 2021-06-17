@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- 올리는 용
+
 </body>
 </html>

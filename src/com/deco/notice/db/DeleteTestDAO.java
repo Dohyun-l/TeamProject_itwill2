@@ -72,7 +72,7 @@ public class DeleteTestDAO {
 
 		try {
 			conn = getConnection();
-			sql = "delete from deco where idx=?";
+			sql = "delete from notice where idx=?";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, idx);
@@ -93,7 +93,7 @@ public class DeleteTestDAO {
 		List noticeList = new ArrayList();
 		try {
 			conn = getConnection();
-			sql = "select * from deco";
+			sql = "select idx, title, user_num, create_at, count from notice";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
