@@ -125,6 +125,9 @@ public class userDAO {
 		
 		//private user는 기본적으로 계정 공개로 0으로 설정(참고: 비공개는 1로 함)
 		pstmt.setInt(10, 0);
+		
+		//회원가입한 유저는 -1로 이메일 인증을 안한 유저이다.
+		pstmt.setInt(11, -1);
 	}
 	//setJoinPreState
 	
@@ -145,9 +148,10 @@ public class userDAO {
 			}
 			
 			//유저 DB에 넣기
+			//관리자면 1, 일반 유저 0, 이메일 인증전 유저 -1
 			sql = "insert into user (user_num, email, pw, name, nickname, addr, "
-					+ "phone, major, inter, create_at, last_login, private_user) "
-					+ "values(?,?,?,?,?,?,?,?,?,now(),now(),?)";
+					+ "phone, major, inter, create_at, last_login, private_user, admin_auth) "
+					+ "values(?,?,?,?,?,?,?,?,?,now(),now(),?,?)";
 
 			pstmt = conn.prepareStatement(sql);
 			setJoinPreState(uDTO);
@@ -163,4 +167,28 @@ public class userDAO {
 		return flag;
 	}
 	//insertUser
+	
+	//searchUserEmail
+	public boolean searchUserEmail(String nowEmail){
+		boolean flag = false;
+		
+		try {
+			conn = getConnection();
+			sql = "select user_num from user where email=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, nowEmail);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				flag = true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
+	//serachUserEmail
 }
