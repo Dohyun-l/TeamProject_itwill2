@@ -1,4 +1,4 @@
-package com.deco.notice;
+package com.deco.notice.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,14 +57,13 @@ public class noticeDAO {
 	}
 /*	
 	인서트
-	업데이트
 	딜리트
-	리스트
-	
+
+	업데이트	
+	리스트	
 	*/
 	
-	
-	public 
+
 	
 	
 	
