@@ -60,7 +60,7 @@
 			<td>글번호</td>
 			<td>작성자</td>
 			<td>제목</td>
-			<td>내용</td>
+			<!-- <td>내용</td> -->
 			<td>작성일</td>
 			<td>조회수</td>
 		</tr>
@@ -74,7 +74,7 @@
 			<td>
 			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>"><%=nDTO.getTitle()%></a>
 			</td>
-			<td><%=nDTO.getContent() %></td>
+			<%-- <td><%=nDTO.getContent() %></td> --%>
 			<td><%=nDTO.getCreate_at() %></td>
 			<td><%=nDTO.getCount() %></td>
 		</tr>

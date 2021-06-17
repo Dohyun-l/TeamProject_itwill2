@@ -242,6 +242,7 @@ public class noticeDAO {
 				nDTO.setUser_num(rs.getInt("user_num"));
 				nDTO.setTitle(rs.getString("title"));
 				nDTO.setContent(rs.getString("content"));
+				nDTO.setFile(rs.getString("file"));
 				nDTO.setCreate_at(rs.getDate("create_at"));
 				nDTO.setCount(rs.getInt("count"));
 				
@@ -257,7 +258,27 @@ public class noticeDAO {
 	// getBoard(num)
 	
 	
-	
+	//deleteNotice(int idx)
+	public void deleteNotice(int idx) {
+
+		try {
+			conn = getConnection();
+			sql = "delete from notice where idx=?";
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+
+			System.out.println("삭제 완료");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}
+	//deleteNotice(int idx)
 	
 	
 	

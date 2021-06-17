@@ -19,13 +19,14 @@ public class NoticeInsertAction implements Action {
 	
 		// 한글처리
 		request.setCharacterEncoding("UTF-8");
+		
 		// 파일업로드
 		// upload 폴더 생성
 		//request.getRealPath("/upload");
 		ServletContext ctx = request.getServletContext();
 		String realpath = ctx.getRealPath("/upload");
 		
-		int maxSize = 5 * 1024 * 1024;
+		int maxSize = 10 * 1024 * 1024;
 		
 		MultipartRequest multi
 			= new MultipartRequest(

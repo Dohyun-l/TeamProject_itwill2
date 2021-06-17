@@ -12,9 +12,9 @@
 <form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
 	제목 <input type="text" name="title"> <br>
 	<hr>
-	<%-- <jsp:include page="./index.jsp"></jsp:include> --%>
 	내용
-	<textarea rows="10" cols="30" name="content"></textarea>
+	<jsp:include page="./index.html"></jsp:include>
+	<!-- <textarea rows="10" cols="30" name="content"></textarea> -->
 	<hr>
 	<input type="file" name="file"><br>
 	<hr>

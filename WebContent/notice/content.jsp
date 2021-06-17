@@ -10,7 +10,11 @@
 </head>
 <body>
 	<h1>WebContent/board/content.jsp</h1>
+	
 	<%
+		// 한글처리
+		request.setCharacterEncoding("UTF-8");
+	
 		// 페이지 이동시 전달정보(파라미터)가 있으면 항상 가장 먼저 저당
 		// num, pageNum
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -24,6 +28,7 @@
 		
 		// DB에서 글번호(num)에 해당하는 글정보를 모두 가져와서 출력
 		noticeDTO nDTO = nDAO.getBoard(idx);
+		
 	%>
 	
 	<table border="1">
@@ -54,6 +59,8 @@
 				<a href="../upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
 			</td>
 		</tr>
+		
+		
 <%-- 		<tr>
 			<td colspan="4">
 			<input type="button" value="수정하기" 
@@ -66,6 +73,10 @@
 			</td>
 		</tr> --%>
 	</table>
+	<hr>
+	<input type="button" value="삭제하기" 
+				onclick="location.href='./NoticeDeleteAction.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
+	<input type="button" value="목록으로" onclick="location.href='noticelist.nt?pageNum=<%=pageNum%>';">
 
 </body>
 </html>
