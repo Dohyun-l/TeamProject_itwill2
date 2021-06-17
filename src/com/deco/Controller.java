@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controller extends HttpServlet{
 	public String reqURI;
-	public String keyword;
+	public String command;
 	public Action action;
 	public ActionForward forward;
 	
 	protected void setInit(HttpServletRequest req, HttpServletResponse res){
 		reqURI = req.getRequestURI();
-		keyword = getKeyword(req, 0);
+		command = getCommand(req, 0);
 		action = null;
 		forward = null;
 	}
 	
-	protected String getKeyword(HttpServletRequest req, int length){
+	protected String getCommand(HttpServletRequest req, int length){
 		return req.getRequestURI().substring(req.getContextPath().length()+length);
 	}
 	
