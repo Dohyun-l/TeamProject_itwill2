@@ -65,6 +65,14 @@ public class NoticeController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("./NoticeDeleteAction.nt")){
+			System.out.println("2 : ./NoticeDeleteAction.nt 호출");
+			action = new NoticeDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println("C : 2. 페이지 주소 매핑 완료");

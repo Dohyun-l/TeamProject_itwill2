@@ -95,6 +95,26 @@ public class noticeDAO {
 	}
 	//insertNotice(nDTO)
 	
+	//deleteNotice(int idx)
+	public void deleteNotice(int idx) {
+
+		try {
+			conn = getConnection();
+			sql = "delete from notice where idx=?";
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+
+			System.out.println("삭제 완료");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}//deleteNotice(int idx)
 
 	// updateReadcount(num)
 	public void updateReadcount(int idx){

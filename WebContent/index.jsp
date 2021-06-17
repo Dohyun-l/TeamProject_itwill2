@@ -10,11 +10,9 @@
 
 	<!-- model2 실행페이지 -->
 	<%
-
 		
 		response.sendRedirect("./Main.nt");
 
-	
 	
 	%>
 

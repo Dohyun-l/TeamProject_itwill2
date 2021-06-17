@@ -17,13 +17,32 @@ public class NoticeInsertAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
-		// 한글처리
-		request.setCharacterEncoding("UTF-8");
+		// 파일업로드
+		// upload 폴더 생성
+		//request.getRealPath("/upload");
+		ServletContext ctx = request.getServletContext();
+		String realpath = ctx.getRealPath("/upload");
+		
+		int maxSize = 5 * 1024 * 1024;
+		
+		MultipartRequest multi
+			= new MultipartRequest(
+					request,
+					realpath,
+					maxSize,
+					"UTF-8",
+					new DefaultFileRenamePolicy()
+				);
+		
+		System.out.println("M : 파일 업로드 완료!");
 		
 		// 전달된 정보 (파라미터 저장)
 		noticeDTO nDTO = new noticeDTO();
-		nDTO.setTitle(request.getParameter("title"));
-		nDTO.setContent(request.getParameter("content"));
+		nDTO.setTitle(multi.getParameter("title"));
+		nDTO.setContent(multi.getParameter("content"));
+		
+		// 서버에 업로드된 파일이름을 저장
+		nDTO.setFile(multi.getFilesystemName("file"));
 		
 		noticeDAO nDAO = new noticeDAO();
 		nDAO.insertNotice(nDTO);
