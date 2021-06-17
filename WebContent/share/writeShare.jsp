@@ -44,6 +44,7 @@ function recaptcha(token) {
 		
 		// enctype="multipart/form-data"
 	%>
+	
 		
 		<form action="./shareWriteAction" method="post" onsubmit="readContent()" name="fr">
 		<!-- 닉네임 -->
@@ -59,7 +60,9 @@ function recaptcha(token) {
 		</select><br>
 		<!-- 제목 -->	  		
 		<input type="text" name="title" placeholder="제목을 입력해주세요"><br>
-		<input type="text" value="5개 이하로 체크해주세요" readonly><br>
+		
+		
+		5개 이하로 체크해주세요<br>
 		<!-- 최대 5개까지 체크가능 -->
 		<input type="checkbox" name="tag" value="AI/머신러닝">AI/머신러닝
 		<input type="checkbox" name="tag" value="AMstack">AMstack
@@ -883,7 +886,10 @@ function recaptcha(token) {
 <!--Example Start-->
 <div id="se2_sample" style="margin:10px 0;">
 
-<textarea name="content" id="ir1" rows="10" cols="100" style="width:850px; height:400px; display:none;"><p>글 작성하고 에디터로 수정해보기 테슷흐!!!</p></textarea>
+<textarea name="content" id="ir1" rows="10" cols="100" style="width:850px; height:400px; display:none;">
+
+
+</textarea>
 
 </div>
 
