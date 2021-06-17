@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `idx` int(11) NOT NULL,
   `user_num` int(11) NOT NULL,
-  `tite` varchar(45) NOT NULL,
+  `title` varchar(45) NOT NULL,
   `content` varchar(2000) NOT NULL,
   `file` varchar(500) DEFAULT NULL,
-  `write_date` date NOT NULL,
+  `create_at` date NOT NULL,
   `count` int(11) DEFAULT NULL,
   PRIMARY KEY (`idx`),
   KEY `usernum_fk_idx` (`user_num`),
@@ -42,6 +42,7 @@ CREATE TABLE `notice` (
 
 LOCK TABLES `notice` WRITE;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
+INSERT INTO `notice` VALUES (1,1,'왜 안 됨','왜?','왤까','2020-06-16',1);
 /*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-15 22:54:58
+-- Dump completed on 2021-06-17  0:08:38
