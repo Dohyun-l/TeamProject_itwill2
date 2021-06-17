@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.deco.*;
-
+@WebServlet("*.nt")
 public class NoticeController extends HttpServlet{
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,16 +30,42 @@ public class NoticeController extends HttpServlet{
 		
 		/********************************** 2.페이지 주소 매핑(연결) ********************************************/
 
-		if(command.equals("/NoticeInsertAction.nt")){
-			action = new ;
-			
+		Action action = null;
+		ActionForward forward = null;
+		
+		if(command.equals("/Main.nt")){
+			forward = new ActionForward();
+			forward.setPath("./main/main.jsp");
+			forward.setRedirect(false);
+		}
+		
+		else if(command.equals("/noticeform.nt")){
+			forward = new ActionForward();
+			forward.setPath("./notice/noticeform.jsp");
+			forward.setRedirect(false);
+		}
+
+		else if(command.equals("/noticelist.nt")){
+			forward = new ActionForward();
+			forward.setPath("./notice/list.jsp");
+			forward.setRedirect(false);
+		}
+
+		else if(command.equals("/noticecontent.nt")){
+			forward = new ActionForward();
+			forward.setPath("./notice/content.jsp");
+			forward.setRedirect(false);
+		}
+		
+		else if(command.equals("/NoticeInsertAction.nt")){
+			System.out.println("2 : /NoticeInsertAction.nt 호출");
+			action = new NoticeInsertAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
 		
 		System.out.println("C : 2. 페이지 주소 매핑 완료");
 		/********************************** 2.페이지 주소 매핑(연결) ********************************************/
