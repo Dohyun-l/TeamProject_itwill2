@@ -10,7 +10,7 @@ public class joinGetAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) {
-		ActionForward forward = new ActionForward("../user/join/join.jsp", false);
+		ActionForward forward = new ActionForward("./user/join/join.jsp", false);
 		return forward;
 	}
 }

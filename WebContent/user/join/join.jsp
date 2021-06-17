@@ -24,6 +24,6 @@
 		<button id="joinSubmit">회원가입</button>
 	</form>
 </main>
-<script type="module" src="../user/join/js/searchData.js"></script>
+<script type="module" src="./searchData.js"></script>
 </body>
 </html>

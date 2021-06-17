@@ -12,15 +12,14 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import com.deco.Controller;
 
-@WebServlet("/users/*")
+@WebServlet("*.us")
 public class userController extends Controller{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		setInit(req, res);
-		keyword = getKeyword(req,6);
 		
-		if(keyword.equals("/join")){
+		if(command.equals("/join.us")){
 			System.out.println("join에 들어옴");
 			
 			action = new joinGetAction();
@@ -37,9 +36,8 @@ public class userController extends Controller{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		setInit(req, res);
-		keyword = getKeyword(req,6);
 		
-		if(keyword.equals("/join")){
+		if(command.equals("/join.us")){
 			System.out.println("/join  ====> post 에 들어옴");
 			
 			action = new joinPostAction();

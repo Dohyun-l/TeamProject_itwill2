@@ -8,6 +8,6 @@
 </head>
 <body>
 <%
-response.sendRedirect(request.getContextPath()+"/users/join");%>
+response.sendRedirect(request.getContextPath()+"/join.us");%>
 </body>
 </html>

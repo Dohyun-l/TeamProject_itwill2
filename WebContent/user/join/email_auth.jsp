@@ -9,7 +9,7 @@
 </head>
 <body>
 	<main></main>
-		<form action="./user/emailAuthAction" method="post">
+		<form action="./emailAuthAction.us" method="post">
 			<h2>이메일 인증을 해주세요!</h2>
 			<h4>입력하신 이메일 주소로 인증번호를 발송했습니다.</h4>
 			<input type="text" name="email_auth" id="email_auth" placeholder="인증번호">
