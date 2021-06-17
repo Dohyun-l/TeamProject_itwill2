@@ -17,8 +17,8 @@ public class NoticeInsertAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
-		// 한글처리
-		request.setCharacterEncoding("UTF-8");
+		/*// 한글처리
+		request.setCharacterEncoding("UTF-8");*/
 		
 		// 파일업로드
 		// upload 폴더 생성
@@ -26,7 +26,7 @@ public class NoticeInsertAction implements Action {
 		ServletContext ctx = request.getServletContext();
 		String realpath = ctx.getRealPath("/upload");
 		
-		int maxSize = 10 * 1024 * 1024;
+		int maxSize = 5 * 1024 * 1024;
 		
 		MultipartRequest multi
 			= new MultipartRequest(

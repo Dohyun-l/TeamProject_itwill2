@@ -20,35 +20,18 @@
 
 <h1>WebContent/notice/index.html</h1>
 
-<script type="text/javascript">
- 	function ck(){
-    	if(document.forms[0].subject.value == ""){
-			alert("제목을 입력하세요");
-			document.forms[0].subject.focus();
-			return false;
-		}
-    	if(document.forms[0].content.value == ""){
-			alert("내용을 입력하세요");
-			document.forms[0].content.focus();
-			return false;
-		}
-    }
- </script>
-
-
 <!--Example Start-->
 <div id="se2_sample" style="margin:10px 0;">
 	
-	<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
-		제목 <input type="text" name="title"> <br>
+	<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data" name="fr">
+		제목 <input type="text" name="title">
 		<hr>
-		<input type="file" name="file"><br>
+		<input type="file" name="file">
 		<hr>
 		<!-- 원래 이름 : name="ir1" -->
-		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;">
-			<p>글 수정시 여기에 값을 넣어주면 됩니다.</p>
-		</textarea>
+		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;"></textarea>
 	</form>
+		<!-- <p>글 수정시 여기에 값을 넣어주면 됩니다.</p> -->
 	
 <!-- 	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
 	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
@@ -837,12 +820,15 @@
 </div> -->
 
 
+
 	<hr>
 	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
-	<input type="button" onclick="showHTML(); return ck();" value="본문 내용 가져오기" />
-	<input type="button" onclick="submitContents();" value="서버로 내용 전송" />
+	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
 	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
 	
+	<hr>
+	
+	<input type="button" onclick="submitContents();" value="글 작성" />
 	<input type="button" value="목록으로" onclick="location.href='noticelist.nt';">
 	
 	
@@ -881,10 +867,19 @@ if(window.frameElement){
 	}
 	
 	function submitContents() {
+		if(document.fr.title.value == ""){
+			alert("제목을 입력하세요");
+			document.fr.title.focus();
+			return;
+		}
 		oEditor.exec("UPDATE_CONTENTS_FIELD");	// 에디터의 내용이 textarea에 적용됩니다.
-	
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+    	if(document.fr.content.value == ""){
+			alert("내용을 입력하세요");
+			document.getElementById("ir1").focus();
+			return;
+		}
 		jindo.$("ir1").form.submit();
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
 	}
 	
 	function setDefaultFont() {

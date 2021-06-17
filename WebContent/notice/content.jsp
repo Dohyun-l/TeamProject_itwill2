@@ -12,8 +12,8 @@
 	<h1>WebContent/board/content.jsp</h1>
 	
 	<%
-		// 한글처리
-		request.setCharacterEncoding("UTF-8");
+		/* // 한글처리
+		request.setCharacterEncoding("UTF-8"); */
 	
 		// 페이지 이동시 전달정보(파라미터)가 있으면 항상 가장 먼저 저당
 		// num, pageNum
@@ -56,10 +56,9 @@
 		<tr>
 			<td>file</td>
 			<td colspan="3">
-				<a href="../upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
+				<a href="./upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
 			</td>
 		</tr>
-		
 		
 <%-- 		<tr>
 			<td colspan="4">
@@ -73,6 +72,7 @@
 			</td>
 		</tr> --%>
 	</table>
+	
 	<hr>
 	<input type="button" value="삭제하기" 
 				onclick="location.href='./NoticeDeleteAction.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
