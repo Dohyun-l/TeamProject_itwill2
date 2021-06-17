@@ -99,6 +99,8 @@ public class userDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally{
+			closeDB();
 		}
 		
 		return flag;
@@ -186,6 +188,8 @@ public class userDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally{
+			closeDB();
 		}
 		
 		return flag;

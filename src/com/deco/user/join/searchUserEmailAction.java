@@ -31,10 +31,12 @@ public class searchUserEmailAction implements Action{
 		if(exists){
 			state.put("exists", true);
 		}else{
-			state.put("");
+			state.put("exists",false);
 		}
 		
-		return new ActionForward(req.getContextPath()+"/user/join/resultSearch.jsp", false);
+		req.setAttribute("Exists", state);
+		
+		return new ActionForward("./user/join/resultSearch.jsp", false);
 	}
 	
 }

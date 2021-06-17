@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.deco.ActionForward;
 import com.deco.Controller;
 
 @WebServlet("*.json")
@@ -23,10 +24,18 @@ public class dataController extends Controller{
 		System.out.println(command);
 		
 		if(command.equals("/SearchUserEmail.json")){
-			action = new 
+			action = new searchUserEmailAction();
+			
+			try {
+				forward = action.execute(req, res);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/SearchUserNickname.json")){
 			
 		}
+		
+		render(forward, req, res);
 	}
 	
 }
