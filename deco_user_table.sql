@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_num` int(11) NOT NULL AUTO_INCREMENT COMMENT 'USER_NUM',
   `email` varchar(45) NOT NULL COMMENT 'EMAIL(UK)',
-  `pw` varchar(45) NOT NULL COMMENT 'PW',
-  `pre_pw` varchar(45) DEFAULT NULL,
+  `pw` varchar(200) NOT NULL COMMENT 'PW',
+  `pre_pw` varchar(200) DEFAULT NULL,
   `name` varchar(45) NOT NULL COMMENT 'NAME',
   `nickname` varchar(45) NOT NULL COMMENT 'NICKNAME',
   `addr` varchar(45) NOT NULL COMMENT 'ADDR',
@@ -39,9 +39,10 @@ CREATE TABLE `user` (
   `private_user` int(11) NOT NULL COMMENT 'private_user',
   `point` int(11) DEFAULT NULL COMMENT 'Point',
   `admin_auth` int(11) DEFAULT NULL COMMENT 'admin',
+  `email_auth` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`user_num`),
   UNIQUE KEY `user_email_uk` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +51,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'rnrudxo','123','2020-04-12','koo','koo','1234','124','koo','213','2020-04-12','2020-04-12','2020-04-12',1,123,1),(2,'2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12','2020-04-12',2,412,0);
+INSERT INTO `user` VALUES (3,'Koo@naver.com','123',NULL,'쿠쿠','123','01123','1234','123,21312,123','123,213','2021-06-16','2021-06-16',NULL,0,NULL,NULL,NULL),(4,'rnrudxo@naver.com','$2a$05$E1x4QtmWwquy/AbuDPjPc.elzg24zmkQfdQHYADgjSI3iamZXC3Ya',NULL,'쿠쿠루쿠쿠','쿠쿠루닉넴','서울 강남구 봉은사로 403','1230412','123,21312,123','12412','2021-06-17','2021-06-17',NULL,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,4 +68,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-15 23:32:23
+-- Dump completed on 2021-06-17  0:13:28
