@@ -10,15 +10,15 @@ import com.deco.notice.db.DeleteTestDAO;
 public class deleteAction implements Action{
 
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) {
-		ActionForward forward = new ActionForward("./notice/list", true);
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		int idx = Integer.parseInt(req.getParameter("idx"));	
 	
 		DeleteTestDAO dtDAO = new DeleteTestDAO();
 		
 		dtDAO.deleteNotice(idx);
-
+	
+		ActionForward forward = new ActionForward("./notice/list", true);
 		return forward;
 	}
 
