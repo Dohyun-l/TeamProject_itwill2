@@ -4,9 +4,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Deco</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+function check(){
+	if(document.fr.email.value == ""){
+		alert("이메일을 입력하세요");
+		document.fr.email.focus();
+		return false;
+	}
+	if(document.fr.pw.value == ""){
+		alert("비밀번호를 입력하세요");
+		document.fr.pw.focus();
+		return false;
+	}
+}
+</script>
 </head>
 <body>
-시헌행님이 작성하실 곳. (파일명 맘대로 하셔도 되용)
+
+ <form action="./UserLoginAction" method="post" onsubmit="return check();">
+ <center>
+ 	<h2>로그인</h2><br>
+ 	<label>이메일</label><br>
+ 	<input type="email" name="email" size="20" style="text-align:center"><br>
+ 	<label>비밀번호</label><br>
+ 	<input type="password" name="pw" size="20" style="text-align:center"><br>
+ 	<br>
+ 	<input type="submit" value="로그인"> | <input type="button" value="회원가입" onclick="">
+ </center>
+ </form>
 </body>
 </html>
