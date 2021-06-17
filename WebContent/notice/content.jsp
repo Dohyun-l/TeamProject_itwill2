@@ -47,6 +47,13 @@
 		<tr>
 			<td colspan="4"><%=nDTO.getContent()%></td>
 		</tr>
+		
+		<tr>
+			<td>file</td>
+			<td colspan="3">
+				<a href="../upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
+			</td>
+		</tr>
 <%-- 		<tr>
 			<td colspan="4">
 			<input type="button" value="수정하기" 

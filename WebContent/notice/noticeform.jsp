@@ -9,13 +9,14 @@
 <body>
 <h1>WebContent/notice/noticeform.jsp</h1>
 
-<form action="./NoticeInsertAction.nt" method="post">
+<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
 	제목 <input type="text" name="title"> <br>
 	<hr>
 	<%-- <jsp:include page="./index.jsp"></jsp:include> --%>
-	<!-- 내용 : <input type="text" name="content"> -->
 	내용
 	<textarea rows="10" cols="30" name="content"></textarea>
+	<hr>
+	<input type="file" name="file"><br>
 	<hr>
 	<input type="submit" value="등록">
 	<input type="reset" value="취소">

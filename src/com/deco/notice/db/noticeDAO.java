@@ -76,13 +76,14 @@ public class noticeDAO {
 			System.out.println("DAO : 상품번호 - " + num);
 			
 			// 2. 글 등록
-			sql = "insert into notice (idx, user_num, title, content, create_at, count) "
-					   + "values(?,1,?,?,now(),0)";
+			sql = "insert into notice (idx, user_num, title, content, file, create_at, count) "
+					   + "values(?,1,?,?,?,now(),0)";
 			   pstmt = conn.prepareStatement(sql);
 			   // ?
 			   pstmt.setInt(1, num);
 			   pstmt.setString(2, nDTO.getTitle());
 			   pstmt.setString(3, nDTO.getContent());
+			   pstmt.setString(4, nDTO.getFile());
 			   
 			   // 4 sql 실행
 			   pstmt.executeUpdate();
