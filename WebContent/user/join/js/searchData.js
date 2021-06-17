@@ -1,5 +1,6 @@
 const emailInput = document.querySelector("#email");
 const nicknameInput = document.querySelector("#nickname");
+const joinForm = document.querySelector("#joinForm");
 
 const getPostRequest = (reqData) => {
     let data = {
@@ -24,8 +25,10 @@ const SearchData = async(event,url) => {
     
     if(state.exists){
         $target.style.borderColor = 'red';
+        $target.classList.remove("permit")
     } else {
         $target.style.borderColor = 'green';
+        $target.classList.add("permit");
     }
 }
 
@@ -39,5 +42,12 @@ const nicknameSearchHandler = async(event) => {
     await SearchData(event, URL);
 }
 
+const checkAuthHandler = async(event) => {
+    if(!emailInput.classList.contains("permit") || !nicknameInput.classList.contains("permit")){
+        event.preventDefault()
+    } 
+}
+
 emailInput.addEventListener("keyup",emailSearchHandler);
 nicknameInput.addEventListener("keyup",nicknameSearchHandler);
+joinForm.addEventListener("submit",checkAuthHandler);
