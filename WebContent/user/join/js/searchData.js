@@ -2,7 +2,7 @@ const emailInput = document.querySelector("#email");
 const nicknameInput = document.querySelector("#nickname");
 const joinForm = document.querySelector("#joinForm");
 
-const getPostRequest = (reqData) => {
+export const getPostRequest = (reqData) => {
     let data = {
         reqData:reqData
 	}

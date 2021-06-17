@@ -19,11 +19,15 @@
 		<input type="text" name="nickname" id="nickname" placeholder="닉네임">
 		<input type="text" name="phone" id="phone" placeholder="휴대전화">
 		<input type="text" name="addr" id="addr" placeholder="주소">
+		<button onclick="callAddress()">주소찾기</button>
 		<input type="text" name="major" id="major" placeholder="전문분야">
 		<input type="text" name="inter" id="inter" placeholder="관심분야">
 		<button id="joinSubmit">회원가입</button>
 	</form>
 </main>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="./user/join/js/addrAPI.js"></script>
 <script type="module" src="./user/join/js/searchData.js"></script>
+<script type="module" src="./user/join/js/searchSubject.js"></script>
 </body>
 </html>

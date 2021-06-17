@@ -24,6 +24,10 @@ public class dataController extends Controller{
 		}else if(command.equals("/SearchUserNickname.json")){
 			action = new searchUserNicknameAction();
 			forward = action.execute(req, res);
+		
+		}else if(command.equals("/SearchSubject.json")){
+			action = new searchSubjectAction();
+			forward = action.execute(req, res);
 		}
 		
 		render(forward, req, res);

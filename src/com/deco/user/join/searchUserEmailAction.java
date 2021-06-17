@@ -15,13 +15,7 @@ public class searchUserEmailAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
-		//post로 온 body를 받는 영역
-		String postBody = getBody.readBody(req);
-
-		JSONParser jsonParser = new JSONParser();
-		JSONObject postBodyObject = (JSONObject) jsonParser.parse(postBody);
-
-		String nowEmail = (String)postBodyObject.get("reqData");
+		String nowEmail = getBody.getReqData(req);
 
 		//DB 호출
 		userDAO uDAO = new userDAO();
