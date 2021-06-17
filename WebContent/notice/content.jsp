@@ -12,9 +12,6 @@
 	<h1>WebContent/board/content.jsp</h1>
 	
 	<%
-		/* // 한글처리
-		request.setCharacterEncoding("UTF-8"); */
-	
 		// 페이지 이동시 전달정보(파라미터)가 있으면 항상 가장 먼저 저당
 		// num, pageNum
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -29,6 +26,7 @@
 		// DB에서 글번호(num)에 해당하는 글정보를 모두 가져와서 출력
 		noticeDTO nDTO = nDAO.getBoard(idx);
 		
+		String fl = nDTO.getFile();
 	%>
 	
 	<table border="1">
@@ -53,12 +51,14 @@
 			<td colspan="4"><%=nDTO.getContent()%></td>
 		</tr>
 		
+		<%if(fl != null){ %>
 		<tr>
 			<td>file</td>
 			<td colspan="3">
 				<a href="./upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
 			</td>
 		</tr>
+		<%} %>
 		
 <%-- 		<tr>
 			<td colspan="4">
