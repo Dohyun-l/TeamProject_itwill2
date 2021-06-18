@@ -76,7 +76,7 @@ public class NoticeController extends HttpServlet{
 			}
 		}else if(command.equals("/NoticeUpdateAction.nt")){
 			System.out.println("2 : ./NoticeUpdateAction.nt 호출");
-			action = new NoticeDeleteAction();
+			action = new NoticeUpdateAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
