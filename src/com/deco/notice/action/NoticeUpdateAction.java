@@ -4,32 +4,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.deco.notice.db.noticeDAO;
-import com.deco.notice.db.noticeDTO;
 
-
-public class NoticeUpdateFormAction implements Action{
+public class NoticeUpdateAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		System.out.println("M : NoticeUpdateFormAction_execute() 호출");
+System.out.println("M :NoticeDeleteAction_execute() 호출");
 		
-		// 전달된 파라미터값 num저장
 		int idx = Integer.parseInt(request.getParameter("idx"));
-		// DB객체 생성후 getGoods(num);
+		
 		noticeDAO nDAO = new noticeDAO();
-		noticeDTO nDTO = nDAO.getBoard(idx);
 		
-		// 저장
-		request.setAttribute("nDTO", nDTO);
+		nDAO.deleteNotice(idx);;
 		
-		// 페이지 이동(admin_goods_modify.jsp)
+		// 페이지 이동(./AdminGoodsList.ag)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./notice/content_update.jsp");
+		forward.setPath("./notice/content.jsp");
 		forward.setRedirect(false);		
-		
 		return forward;
 	}
-	
 
+	
 }

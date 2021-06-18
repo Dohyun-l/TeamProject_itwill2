@@ -37,7 +37,7 @@ public class TestController extends Controller{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		setInit(req, res);
-		keyword = getKeyword(req,6);
+		keyword = getKeyword(req,7);
 		
 		if(keyword.equals("/list")){
 			System.out.println("/list  ====> post 에 들어옴");
