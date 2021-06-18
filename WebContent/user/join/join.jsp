@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<link rel="stylesheet" href="./user/join/style.css">
 <title>Join</title>
 </head>
 <body>
@@ -20,8 +21,27 @@
 		<input type="text" name="phone" id="phone" placeholder="휴대전화">
 		<input type="text" name="addr" id="addr" placeholder="주소">
 		<button onclick="callAddress()">주소찾기</button>
-		<input type="text" name="major" id="major" placeholder="전문분야">
-		<input type="text" name="inter" id="inter" placeholder="관심분야">
+
+		<div class="subInputContainer">
+			<div class="cofirmContainer"></div>
+			<div class="InputContainer">
+				<div>
+				<input type="text" name="major" class="subjectInput" id="major" placeholder="전문분야">
+				</div>
+				<div id="searchBox1"></div>
+			</div>	
+		</div>
+
+		<div class="subInputContainer">
+			<div class="cofirmContainer"></div>
+			<div class="InputContainer">
+				<div>
+				<input type="text" name="inter" class="subjectInput" id="inter" placeholder="관심분야">
+				</div>
+				<div id="searchBox1"></div>
+			</div>	
+		</div>
+		</div>
 		<button id="joinSubmit">회원가입</button>
 	</form>
 </main>

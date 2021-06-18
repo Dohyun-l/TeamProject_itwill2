@@ -50,4 +50,5 @@ const checkAuthHandler = async(event) => {
 
 emailInput.addEventListener("keyup",emailSearchHandler);
 nicknameInput.addEventListener("keyup",nicknameSearchHandler);
-joinForm.addEventListener("submit",checkAuthHandler);
+joinForm.addEventListener("submit", checkAuthHandler);
+

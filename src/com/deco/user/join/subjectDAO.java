@@ -65,7 +65,7 @@ public class subjectDAO {
 					+ "limit 0,5";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+SearchWord+"%");
+			pstmt.setString(1, SearchWord+"%");
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()){
