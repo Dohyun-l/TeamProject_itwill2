@@ -281,9 +281,66 @@ public class noticeDAO {
 	//deleteNotice(int idx)
 	
 	
+	//getContent(idx)
+	public noticeDTO getContent(int idx){
+		noticeDTO nDTO = null;
+		try {
+			conn = getConnection();
+			sql = "select * from notice where idx=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, idx);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				nDTO = new noticeDTO();
+				
+				nDTO.setIdx(rs.getInt("idx"));
+				nDTO.setUser_num(rs.getInt("user_num"));
+				nDTO.setTitle(rs.getString("title"));
+				nDTO.setContent(rs.getString("content"));
+				nDTO.setFile(rs.getString("file"));
+				nDTO.setCreate_at(rs.getDate("create_at"));
+				nDTO.setCount(rs.getInt("count"));
+
+			}//if
+			System.out.println("DAO : 컨텐츠수정 저장완료!");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		
+		return nDTO;
+	}
+	//getContent(idx)
 	
-	
-	
+	//modifyContent(nDTO)
+	public void modifyContent(noticeDTO nDTO, int idx){
+		
+		try {
+			conn = getConnection();
+			
+			sql = "update notice set title=?, content=? where idx=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, nDTO.getTitle());
+			pstmt.setString(2, nDTO.getContent());
+			pstmt.setInt(3, idx);
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("DAO : 글 수정 완료!");
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+	}
+	//modifyContent(nDTO)
 	
 	
 	

@@ -41,7 +41,7 @@ public class NoticeController extends HttpServlet{
 		
 		else if(command.equals("/noticeform.nt")){
 			forward = new ActionForward();
-			forward.setPath("./notice/index.html");
+			forward.setPath("./notice/noticeform.jsp");
 			forward.setRedirect(false);
 		}
 
@@ -56,6 +56,15 @@ public class NoticeController extends HttpServlet{
 			forward.setPath("./notice/content.jsp");
 			forward.setRedirect(false);
 		}
+		else if(command.equals("/noticemodify.nt")){
+			action = new NoticeModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 		else if(command.equals("/NoticeInsertAction.nt")){
 			System.out.println("2 : /NoticeInsertAction.nt 호출");
@@ -69,6 +78,15 @@ public class NoticeController extends HttpServlet{
 		else if(command.equals("/NoticeDeleteAction.nt")){
 			System.out.println("2 : ./NoticeDeleteAction.nt 호출");
 			action = new NoticeDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/NoticeModifyAction.nt")){
+			System.out.println("2 : ./NoticeModifyAction.nt 호출");
+			action = new NoticeModifyAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

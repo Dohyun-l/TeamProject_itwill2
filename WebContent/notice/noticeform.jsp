@@ -9,21 +9,19 @@
 <body>
 <h1>WebContent/notice/noticeform.jsp</h1>
 
-<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
-	제목 <input type="text" name="title"> <br>
-	<hr>
-	내용
-	<jsp:include page="./index.html"></jsp:include>
-	<!-- <textarea rows="10" cols="30" name="content"></textarea> -->
-	<hr>
-	<input type="file" name="file"><br>
-	<hr>
-	<input type="submit" value="등록">
-	<input type="reset" value="취소">
+
+<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data" name="fr">
+		제목 <input type="text" name="title">
+		<hr>
+		<input type="file" name="file">
+		<hr>
+		<!-- 원래 이름 : name="ir1" -->
+		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;"></textarea>
 </form>
-
-
-
+<jsp:include page="./index.html"></jsp:include>
+<hr>
+<input type="button" onclick="submitContents();" value="글 작성" />
+<input type="button" value="목록으로" onclick="location.href='noticelist.nt';">
 
 </body>
 </html>

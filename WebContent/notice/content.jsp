@@ -72,10 +72,12 @@
 			</td>
 		</tr> --%>
 	</table>
-	
 	<hr>
+	<input type="button" value="수정하기" 
+				onclick="location.href='./noticemodify.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
 	<input type="button" value="삭제하기" 
 				onclick="location.href='./NoticeDeleteAction.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
+
 	<input type="button" value="목록으로" onclick="location.href='noticelist.nt?pageNum=<%=pageNum%>';">
 
 </body>
