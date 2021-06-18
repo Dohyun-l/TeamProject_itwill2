@@ -19,8 +19,8 @@ System.out.println("M :NoticeDeleteAction_execute() 호출");
 		
 		// 페이지 이동(./AdminGoodsList.ag)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./notice/content.jsp");
-		forward.setRedirect(false);		
+		forward.setPath("./noticelist.nt");
+		forward.setRedirect(true);		
 		return forward;
 	}
 

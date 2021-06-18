@@ -67,7 +67,7 @@ public class NoticeController extends HttpServlet{
 			}
 		}
 		else if(command.equals("/NoticeDeleteAction.nt")){
-			System.out.println("2 : ./NoticeDeleteAction.nt 호출");
+			System.out.println("2 : /NoticeDeleteAction.nt 호출");
 			action = new NoticeDeleteAction();
 			try {
 				forward = action.execute(request, response);
@@ -75,7 +75,7 @@ public class NoticeController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/NoticeUpdateAction.nt")){
-			System.out.println("2 : ./NoticeUpdateAction.nt 호출");
+			System.out.println("2 : /NoticeUpdateAction.nt 호출");
 			action = new NoticeUpdateAction();
 			try {
 				forward = action.execute(request, response);
