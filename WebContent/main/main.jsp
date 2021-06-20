@@ -29,10 +29,25 @@
 	<input type="button" value="로그아웃!" onclick="location.href='./MemberLogout.me';"> --%>
 	
 	
+	<!-- Search Google -->
+	<form method=get action="http://www.google.co.kr/search" target="_blank" >
+		<table bgcolor="#FFFFFF">
+			<tr>
+				<td>
+				<input type=text name=q size=25 maxlength=255 value="" />
+				<!-- 구글 검색 입력 창 -->
+				<input type=submit name=btnG value="Google 검색" />
+				<!-- 검색 버튼 -->
+				</td>
+			</tr>
+		</table>
+	</form>
+	<!-- Search Google -->
+	
 	<h3><a href="./noticeform.nt"> 게시판 폼 </a></h3>
 	<h3><a href="./noticelist.nt"> 게시판 리스트 </a></h3>
-
-
+	
+	
 	
 	<!-- 관리자만 사용가능한 메뉴 생성 -->
 <%-- 	<% 

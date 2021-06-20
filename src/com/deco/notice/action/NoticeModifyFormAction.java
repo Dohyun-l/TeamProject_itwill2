@@ -23,7 +23,7 @@ public class NoticeModifyFormAction implements Action {
 		
 		// 페이지 이동(admin_goods_modify.jsp)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./notice/noticeModifyForm.jsp");
+		forward.setPath("./notice/editModify.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

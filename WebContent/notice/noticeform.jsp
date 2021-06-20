@@ -9,19 +9,30 @@
 <body>
 <h1>WebContent/notice/noticeform.jsp</h1>
 
-
-<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data" name="fr">
+<script type="text/javascript">
+	function readContent() {
+		   document.fr.content.value = oEditor.getIR();
+		}
+	</script>
+	
+	<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data" name="fr">
 		제목 <input type="text" name="title">
 		<hr>
 		<input type="file" name="file">
 		<hr>
+		
+		<input type="hidden" name="content" id="content">
+		
 		<!-- 원래 이름 : name="ir1" -->
-		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;"></textarea>
-</form>
-<jsp:include page="./index.html"></jsp:include>
-<hr>
-<input type="button" onclick="submitContents();" value="글 작성" />
-<input type="button" value="목록으로" onclick="location.href='noticelist.nt';">
+		<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;"></textarea>
+	</form>
+
+		<jsp:include page="./edit.jsp"/><!-- 에디터 인클루드 -->
+		
+<!-- <hr>
+
+	<input type="button" onclick="submitContents();" value="글 작성" />
+	<input type="button" value="목록으로" onclick="location.href='noticelist.nt';"> -->
 
 </body>
 </html>

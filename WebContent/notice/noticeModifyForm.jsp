@@ -16,20 +16,20 @@
 	
 		int idx = Integer.parseInt(request.getParameter("idx"));
 	%>
-	<h1><%=idx %></h1>
 	
 	<form action="./NoticeModifyAction.nt" method="post" name="fr">
 		<input type="hidden" name="idx" value="<%=idx%>">
 		제목 <input type="text" name="title" value="<%=nDTO.getTitle()%>">
 		<hr>
-		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;">
+		<input type="hidden" name="content" id="content">
+		<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;">
 		<%=nDTO.getContent()%>
 		</textarea>
 	</form>
-	<jsp:include page="./index.html"></jsp:include>
+	<jsp:include page="./edit.html"></jsp:include>
 	<hr>
 	
-	<input type="button" onclick="submitContents();" value="글 수정" />
+	<input type="button" onclick="readContent();submitContents();" value="글 수정" />
 	<input type="button" value="목록으로" onclick="location.href='noticelist.nt';">
 	
 </body>

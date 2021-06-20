@@ -342,6 +342,70 @@ public class noticeDAO {
 	}
 	//modifyContent(nDTO)
 	
+	// getContentCount()
+	// 글번호 최대값
+	public int getMaxContent(){
+		int cnt = 0;
+		
+		try {
+			// 1,2 드라이버 로드, 디비연결
+			conn = getConnection();
+			// 3 sql 작성(select) & pstmt 객체 생성
+			sql = "select max(idx) from notice";
+			pstmt = conn.prepareStatement(sql);
+			// 4 sql 실행
+			rs = pstmt.executeQuery();
+			// 5 데이터 처리
+			if(rs.next()){
+				cnt = rs.getInt(1);	// "count(*)"
+				//cnt = rs.getInt("count(*)");
+			}
+			System.out.println("SQL 구문 실행완료!");
+			System.out.println(" 글 개수 : " + cnt + "개");
+			
+		} catch (Exception e) {
+			System.out.println(" 게시판 글개수_에러 발생!! ");
+			e.printStackTrace();
+		}finally{
+			// 자원해제
+			closeDB();
+		}
+		
+		return cnt;
+	}
+	// getContentCount()
 	
+	// getContentCount()
+	// 글번호 최대값
+	public int getMinContent(){
+		int cnt = 0;
+		
+		try {
+			// 1,2 드라이버 로드, 디비연결
+			conn = getConnection();
+			// 3 sql 작성(select) & pstmt 객체 생성
+			sql = "select min(idx) from notice";
+			pstmt = conn.prepareStatement(sql);
+			// 4 sql 실행
+			rs = pstmt.executeQuery();
+			// 5 데이터 처리
+			if(rs.next()){
+				cnt = rs.getInt(1);	// "count(*)"
+				//cnt = rs.getInt("count(*)");
+			}
+			System.out.println("SQL 구문 실행완료!");
+			System.out.println(" 글 개수 : " + cnt + "개");
+			
+		} catch (Exception e) {
+			System.out.println(" 게시판 글개수_에러 발생!! ");
+			e.printStackTrace();
+		}finally{
+			// 자원해제
+			closeDB();
+		}
+			
+			return cnt;
+		}
+		// getContentCount()
 	
 }

@@ -41,7 +41,7 @@ public class NoticeController extends HttpServlet{
 		
 		else if(command.equals("/noticeform.nt")){
 			forward = new ActionForward();
-			forward.setPath("./notice/noticeform.jsp");
+			forward.setPath("./notice/edit.html");
 			forward.setRedirect(false);
 		}
 
@@ -56,6 +56,14 @@ public class NoticeController extends HttpServlet{
 			forward.setPath("./notice/content.jsp");
 			forward.setRedirect(false);
 		}
+		else if(command.equals("/filedown.nt")){
+			forward = new ActionForward();
+			forward.setPath("./notice/file_down.jsp");
+			forward.setRedirect(false);
+		}
+		//////////////////////////////////////////////////////
+		
+		
 		else if(command.equals("/noticemodify.nt")){
 			action = new NoticeModifyFormAction();
 			try {

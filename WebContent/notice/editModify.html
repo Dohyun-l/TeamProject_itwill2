@@ -17,20 +17,32 @@
 
 </head>
 <body>
+<h1>WebContent/notice/edit.html</h1>
 
 <!-- <h1>WebContent/notice/index.html</h1> -->
 
 <!--Example Start-->
 <div id="se2_sample" style="margin:10px 0;">
+
 	
-	<!-- <form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data" name="fr">
-		제목 <input type="text" name="title">
+	<script type="text/javascript">
+		// 저장
+		noticeDTO nDTO = (noticeDTO)request.getAttribute("nDTO");
+	
+		int idx = Integer.parseInt(request.getParameter("idx"));
+	</script>
+	
+	<form action="./NoticeModifyAction.nt" method="post" name="fr">
+		<input type="hidden" name="idx" value="<%=idx%>">
+		제목 <input type="text" name="title" value="<%=nDTO.getTitle()%>">
 		<hr>
-		<input type="file" name="file">
-		<hr>
-		원래 이름 : name="ir1"
-		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;"></textarea>
-	</form> -->
+		<input type="hidden" name="content" id="content">
+		<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;">
+		<%=nDTO.getContent()%>
+		</textarea>
+	</form>
+	<hr>
+	
 		<!-- <p>글 수정시 여기에 값을 넣어주면 됩니다.</p> -->
 	
 <!-- 	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
@@ -801,36 +813,16 @@
 		<!-- //얼럿 메세지 공통 -->
 	</div>
 </div>
-<!-- SE2 Markup End -->
-
-<!--Example Start-->
-<!-- <div id="se2_sample" style="margin:10px 0;">
-	
-	
-	<form action="./NoticeInsertAction.nt" method="post" enctype="multipart/form-data">
-		제목 <input type="text" name="title"> <br>
-		<hr>
-		<input type="file" name="file"><br>
-		<hr>
-		원래 이름 : name="ir1"
-		<textarea name="content" id="ir1" rows="10" cols="100" style="width:766px; height:412px; display:none;">
-			<p>글 수정시 여기에 값을 넣어주면 됩니다.</p>
-		</textarea>
-	</form>
-</div> -->
-
-
 
 	<hr>
 	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
 	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
 	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
 	
+	<hr>
+	<input type="button" onclick="readContent();submitContents();" value="글 수정" />
+	<input type="button" value="목록으로" onclick="location.href='noticelist.nt';">
 	
-
-	
-	
-
 <script type="text/javascript">
 if(window.frameElement){
 	jindo.$("se2_sample").style.display = "none";
@@ -871,13 +863,16 @@ if(window.frameElement){
 			return;
 		}
 		oEditor.exec("UPDATE_CONTENTS_FIELD");	// 에디터의 내용이 textarea에 적용됩니다.
-    	if(document.fr.content.value == ""){
+    	if(document.fr.ir1.value == ""){
 			alert("내용을 입력하세요");
 			document.getElementById("ir1").focus();
 			return;
 		}
 		jindo.$("ir1").form.submit();
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+	}
+   	function readContent() {
+	   document.fr.content.value = oEditor.getIR();
 	}
 	
 	function setDefaultFont() {

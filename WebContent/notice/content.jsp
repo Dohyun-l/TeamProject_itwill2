@@ -17,8 +17,11 @@
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		String pageNum = request.getParameter("pageNum");
 		
+		
 		// BoardDAO 객체 생성
 		noticeDAO nDAO = new noticeDAO();
+		int cntMax = nDAO.getMaxContent();
+		int cntMin = nDAO.getMinContent();
 		
 		// 글 조회수를 1증가 (DB 처리)
 		nDAO.updateReadcount(idx);
@@ -55,7 +58,8 @@
 		<tr>
 			<td>file</td>
 			<td colspan="3">
-				<a href="./upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a>
+				<%-- <a href="./upload/<%=nDTO.getFile()%>"><%=nDTO.getFile()%></a> --%>
+				<a href="filedown.nt?realPath=upload&file=<%=nDTO.getFile()%>"><%=nDTO.getFile() %></a>
 			</td>
 		</tr>
 		<%} %>
@@ -72,13 +76,39 @@
 			</td>
 		</tr> --%>
 	</table>
+	
+	<script>
+	function del(){
+		if(confirm("정말 삭제하시겠습니까 ?") == true){
+	    	location.href = "./NoticeDeleteAction.nt?idx=" + <%=nDTO.getIdx()%> + "&pageNum=" + <%=pageNum%>;
+	        alert("삭제되었습니다");
+	    }
+	    else{
+	        return ;
+	    }
+		
+	}
+
+	</script>
+	
 	<hr>
 	<input type="button" value="수정하기" 
 				onclick="location.href='./noticemodify.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
-	<input type="button" value="삭제하기" 
-				onclick="location.href='./NoticeDeleteAction.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>';">
+				
+	<input type="button" value="삭제하기" id="delete_btn" onclick="del();">
 
 	<input type="button" value="목록으로" onclick="location.href='noticelist.nt?pageNum=<%=pageNum%>';">
+	
+	<hr>
+	<%if(nDTO.getIdx() != cntMin){ %>
+		<a href="noticecontent.nt?idx=<%=nDTO.getIdx()-1%>&pageNum=<%=pageNum%>">이전글</a>
+	|
+	<%} %>
+	<%if(nDTO.getIdx() != cntMax){ %>
+	<a href="noticecontent.nt?idx=<%=nDTO.getIdx()+1%>&pageNum=<%=pageNum%>">다음글</a>
+	<%} %>
+	<!-- 최대값 미구현 -->
+	<!-- nDTO.getIdx() != cnt	원래 이 코드가 맞는데, 글삭제로 x =? cnt+1로 하면 작동o -->
 
 </body>
 </html>

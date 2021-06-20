@@ -11,7 +11,20 @@
 </head>
 <body>
 	<h1>WebContent/board/list.jsp</h1>
+	
+	<script type="text/javascript">
+		var pageNum = 1;
+	
+		function PageChange(){
+	      pageSize = document.fr.pageChange.value;
+	      location.href = "noticelist.nt?pageNum=" + pageNum + "&pageSize="+ pageSize;
+	   }
+	</script>
+	
+	
 	<%
+	
+	
 		// 디비에 저장된 글의 개수를 알기
 		
 		// BoardDAO 객체 생성
@@ -24,13 +37,17 @@
 		// 게시판 페이징 처리 : DB에서 원하는 만큼만 글 가져오기
 		
 		// 한 페이지당 보여줄 글의 개수
-		int pageSize = 10;
+		String pages = request.getParameter("pageSize");
+		if(pages == null){
+			pages = "10";
+		}
 		
 		// 현 페이지가 몇페이지인지 확인
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null){
 			pageNum = "1";
 		}
+		int pageSize = Integer.parseInt(pages);
 		
 		// 페이지별 시작행 계산하기
 		// 1p -> 1번, 2p -> 11번, 3p -> 21번, .... => 일반화
@@ -53,8 +70,20 @@
 	
 	<h2> ITWILL 게시판 글목록 [총 : <%= cnt %>개] </h2>
 	
+		<h3><a href="./Main.nt">메인으로</a></h3>
 		<h3><a href="./noticeform.nt">공지글쓰기</a></h3>
-	
+		
+		<form name="fr">
+		<select name="pageChange" id="pageChange" onchange="PageChange()">
+			<option value="">몇개씩 보기</option>
+			<option value="5">5개씩 보기</option>
+			<option value="10">10개씩 보기</option>
+			<option value="15">15개씩 보기</option>
+			<option value="20">20개씩 보기</option>
+		</select>
+		</form>
+		<br>
+		
 	<table border="1">
 		<tr>
 			<td>글번호</td>
@@ -72,7 +101,7 @@
 			<td><%=nDTO.getIdx() %></td>
 			<td><%=nDTO.getUser_num() %></td>
 			<td>
-			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>"><%=nDTO.getTitle()%></a>
+			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()%>&pageNum=<%=pageNum%>&cnt=<%=cnt%>"><%=nDTO.getTitle()%></a>
 			</td>
 			<%-- <td><%=nDTO.getContent() %></td> --%>
 			<td><%=nDTO.getCreate_at() %></td>
@@ -95,7 +124,7 @@
 			int pageCount = cnt / pageSize+(cnt % pageSize == 0? 0 : 1);
 			
 			// 한 화면에 보여줄 페이지 번호의 개수 (페이지 블럭)
-			int pageBlock = 2;
+			int pageBlock = 5;
 			
 			// 페이지 블럭의 시작페이지 번호
 			// ex) 1~10페이지 : 1, 11~20페이지 : 11, 21~30페이지 : 21
