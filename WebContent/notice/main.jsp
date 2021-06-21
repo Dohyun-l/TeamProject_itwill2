@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>WebContent/member/main.jsp</h1>
+	<h1>WebContent/notice/main.jsp</h1>
 	
 <%-- 	<%
 		// 사용자가 로그인을 했을때만 main페이지 확인

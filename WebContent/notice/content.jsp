@@ -107,8 +107,7 @@
 	<%if(nDTO.getIdx() != cntMax){ %>
 	<a href="noticecontent.nt?idx=<%=nDTO.getIdx()+1%>&pageNum=<%=pageNum%>">다음글</a>
 	<%} %>
-	<!-- 최대값 미구현 -->
-	<!-- nDTO.getIdx() != cnt	원래 이 코드가 맞는데, 글삭제로 x =? cnt+1로 하면 작동o -->
+	<!-- 삭제된 글번호 건너뛰기 기능 추가하기! -->
 
 </body>
 </html>

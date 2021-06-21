@@ -406,6 +406,64 @@ public class noticeDAO {
 			
 			return cnt;
 		}
-		// getContentCount()
+	// getContentCount()
+	
+	
+	// getIdxExistPre()
+	public int getIdxExistPre(int idx){
+		int result = 0;
+		int cnt = 0;
+		
+		try {
+			conn = getConnection();
+			sql = "select max(idx) from notice where idx<?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				cnt = rs.getInt(1);
+			}
+			result = cnt;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		return result;
+	}
+	// getIdxExistPre()
+	
+	// getIdxExistNext()
+		public int getIdxExistNext(int idx){
+			int result = -1;
+			int nextNum = idx+1;
+			int cnt = 0;
+			
+			try {
+				conn = getConnection();
+				
+				sql = "select idx from notice where idx=?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, nextNum);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					result = -1;
+				}else{
+					result = 0;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+			return result;
+		}
+		// getIdxExistNext()
 	
 }
