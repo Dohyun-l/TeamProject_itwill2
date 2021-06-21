@@ -23,6 +23,9 @@
 		int cntMax = nDAO.getMaxContent();
 		int cntMin = nDAO.getMinContent();
 		
+		int idxExistPre = nDAO.getIdxExistPre(idx);
+		int idxExistNext = nDAO.getIdxExistNext(idx);
+		
 		// 글 조회수를 1증가 (DB 처리)
 		nDAO.updateReadcount(idx);
 		
@@ -64,17 +67,6 @@
 		</tr>
 		<%} %>
 		
-<%-- 		<tr>
-			<td colspan="4">
-			<input type="button" value="수정하기" 
-				onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
-			<input type="button" value="삭제하기" 
-				onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
-			<input type="button" value="답글쓰기"
-				onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum()%>&re_ref=<%=bb.getRe_ref()%>&re_lev=<%=bb.getRe_lev()%>&re_seq=<%=bb.getRe_seq()%>';">
-			<input type="button" value="목록으로" onclick="location.href='list.jsp?pageNum=<%=pageNum%>';">
-			</td>
-		</tr> --%>
 	</table>
 	
 	<script>
@@ -100,14 +92,26 @@
 	<input type="button" value="목록으로" onclick="location.href='noticelist.nt?pageNum=<%=pageNum%>';">
 	
 	<hr>
-	<%if(nDTO.getIdx() != cntMin){ %>
-		<a href="noticecontent.nt?idx=<%=nDTO.getIdx()-1%>&pageNum=<%=pageNum%>">이전글</a>
+	<%if(nDTO.getIdx() != cntMin){
+		if(idxExistPre == -1){%>
+			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()-1%>&pageNum=<%=pageNum%>">이전글</a> 
+		<%}else{%>
+			<a href="noticecontent.nt?idx=<%=idxExistPre%>&pageNum=<%=pageNum%>">이전글</a> 
+	<%}
+	}%>
 	|
-	<%} %>
-	<%if(nDTO.getIdx() != cntMax){ %>
-	<a href="noticecontent.nt?idx=<%=nDTO.getIdx()+1%>&pageNum=<%=pageNum%>">다음글</a>
-	<%} %>
-	<!-- 삭제된 글번호 건너뛰기 기능 추가하기! -->
+	<%if(nDTO.getIdx() != cntMax){
+		if(idxExistNext == -1){%>
+			<a href="noticecontent.nt?idx=<%=nDTO.getIdx()+1%>&pageNum=<%=pageNum%>">다음글</a>
+	<%
+		}else{
+	%>
+			<a href="noticecontent.nt?idx=<%=idxExistNext%>&pageNum=<%=pageNum%>">다음글</a> 
+	<%
+		}
+	}
+	%>
+	
 
 </body>
 </html>

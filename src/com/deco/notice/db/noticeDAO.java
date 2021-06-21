@@ -413,19 +413,31 @@ public class noticeDAO {
 	public int getIdxExistPre(int idx){
 		int result = 0;
 		int cnt = 0;
+		int idxPre = idx-1;
 		
 		try {
 			conn = getConnection();
-			sql = "select max(idx) from notice where idx<?";
+			
+			sql = "select idx from notice where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, idx);
+			pstmt.setInt(1, idxPre);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
-				cnt = rs.getInt(1);
+				result = -1;
+			}else{
+				sql = "select max(idx) from notice where idx<?";
+				PreparedStatement pstmt2 = conn.prepareStatement(sql);
+				
+				pstmt2.setInt(1, idx);
+				ResultSet rs2 = pstmt2.executeQuery();
+				
+				if(rs2.next()){
+					cnt = rs2.getInt(1);
+					result = cnt;
+				}
 			}
-			result = cnt;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -438,9 +450,9 @@ public class noticeDAO {
 	
 	// getIdxExistNext()
 		public int getIdxExistNext(int idx){
-			int result = -1;
-			int nextNum = idx+1;
+			int result = 0;
 			int cnt = 0;
+			int idxNext = idx+1;
 			
 			try {
 				conn = getConnection();
@@ -448,14 +460,22 @@ public class noticeDAO {
 				sql = "select idx from notice where idx=?";
 				pstmt = conn.prepareStatement(sql);
 				
-				pstmt.setInt(1, nextNum);
-				
+				pstmt.setInt(1, idxNext);
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
 					result = -1;
 				}else{
-					result = 0;
+					sql = "select min(idx) from notice where idx>?";
+					PreparedStatement pstmt2 = conn.prepareStatement(sql);
+					
+					pstmt2.setInt(1, idx);
+					ResultSet rs2 = pstmt2.executeQuery();
+					
+					if(rs2.next()){
+						cnt = rs2.getInt(1);
+						result = cnt;
+					}
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
